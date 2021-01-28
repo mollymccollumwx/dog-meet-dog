@@ -5,7 +5,8 @@ module.exports = function (sequelize, DataTypes) {
     status: DataTypes.STRING,
     currentStation: DataTypes.STRING,
     eta: DataTypes.DATE,
+    
   });
 
   return Train;
-};
+};  
