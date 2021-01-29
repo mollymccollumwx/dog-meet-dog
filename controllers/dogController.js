@@ -23,6 +23,8 @@ const router = express.Router();
 
 
 //API ROUTES
+//GET Route to get all users
+
 //POST Route create a new user in database
 
 
