@@ -8,6 +8,20 @@ const app = express();
 const db = require("./models");
 const TrainsController = require("./controllers/trainsController");
 
+const fileupload = require("express-fileupload");
+app.use(
+  fileupload({
+    useTempFiles: true,
+  })
+);
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: "deckz8crp",
+  api_key: "425322847743815",
+  api_secret: "ryfL4bUqAh7PbwfeEzxzcmuS0r4",
+});
+
 const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
@@ -30,6 +44,22 @@ app.get("/api/config", (req, res) => {
   res.json({
     success: true,
   });
+});
+
+app.post("/upload", function (req, res, next) {
+  const file = req.files.photo;
+  // console.log(file);
+  cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
+    console.log("Error: ", err);
+    console.log("Cloudinary URL: ", result.url);
+  });
+  // file.mv("./uploads/" + file.name, function (err, result) {
+  //   if (err) throw err;
+  //   res.send({
+  //     success: true,
+  //     message: "File uploaded!",
+  //   });
+  // });
 });
 
 app.use(TrainsController);
