@@ -43,7 +43,20 @@ router.post("/api/users",(req,res)=>{
 });
 
 //PUT Route to update the user in database
-
+router.put("/api/users/:id", (req, res)=> {
+    db.User.update(req.body,{
+        where: {
+        id: req.params.id,
+        },
+    })
+    .then((result)=> {
+        res.json(result);
+    })
+    .catch((err)=>{
+        console.log (err);
+        res.status(404).end();
+    });
+});
 
 //DELETE Route to delete user from database
 
