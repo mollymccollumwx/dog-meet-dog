@@ -1,4 +1,5 @@
 const express = require("express");
+const { restart } = require("nodemon");
 const db = require("../models");
 
 const router = express.Router();
@@ -30,9 +31,20 @@ router.get("/api/users",(req,res)=>{
     }) 
 })
 //POST Route create a new user in database
-
+router.post("/api/users",(req,res)=>{
+    db.User.create(req.body)
+    .then((createdUser)=> {
+        res.json(createdUser);
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).end();
+    });
+});
 
 //PUT Route to update the user in database
 
 
 //DELETE Route to delete user from database
+
+module.exports = router;

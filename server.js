@@ -6,7 +6,7 @@ const {
 } = require("@handlebars/allow-prototype-access");
 const app = express();
 const db = require("./models");
-const TrainsController = require("./controllers/trainsController");
+const UsersController = require("./controllers/userController");
 
 const fileupload = require("express-fileupload");
 app.use(
@@ -62,7 +62,7 @@ app.post("/upload", function (req, res, next) {
   // });
 });
 
-app.use(TrainsController);
+app.use(UsersController);
 
 db.sequelize
   .sync()
