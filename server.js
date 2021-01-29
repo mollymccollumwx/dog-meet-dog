@@ -46,6 +46,22 @@ app.get("/api/config", (req, res) => {
   });
 });
 
+app.post("/upload", function (req, res, next) {
+  const file = req.files.photo;
+  // console.log(file);
+  cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
+    console.log("Error: ", err);
+    console.log("Cloudinary URL: ", result.url);
+  });
+  // file.mv("./uploads/" + file.name, function (err, result) {
+  //   if (err) throw err;
+  //   res.send({
+  //     success: true,
+  //     message: "File uploaded!",
+  //   });
+  // });
+});
+
 app.use(TrainsController);
 
 db.sequelize
