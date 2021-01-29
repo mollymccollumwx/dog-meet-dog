@@ -24,7 +24,11 @@ const router = express.Router();
 
 //API ROUTES
 //GET Route to get all users
-
+router.get("/api/users",(req,res)=>{
+    db.User.findAll().then(allUsers=>{
+        res.json(allUsers)
+    }) 
+})
 //POST Route create a new user in database
 
 
