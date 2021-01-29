@@ -59,5 +59,19 @@ router.put("/api/users/:id", (req, res)=> {
 });
 
 //DELETE Route to delete user from database
+router.delete("/api/user/:id", (req, res) => {
+    db.User.delete({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(404).end();
+      });
+  });
 
 module.exports = router;
