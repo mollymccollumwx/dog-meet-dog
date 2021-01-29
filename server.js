@@ -8,6 +8,20 @@ const app = express();
 const db = require("./models");
 const TrainsController = require("./controllers/trainsController");
 
+const fileupload = require("express-fileupload");
+app.use(
+  fileupload({
+    useTempFiles: true,
+  })
+);
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: "deckz8crp",
+  api_key: "425322847743815",
+  api_secret: "ryfL4bUqAh7PbwfeEzxzcmuS0r4",
+});
+
 const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
