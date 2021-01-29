@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "MallyWorld",
-    "database": "project2starter",
+    "database": "dog_meet_dog",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
