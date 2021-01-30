@@ -2,6 +2,7 @@ $(document).ready(function(){
 //get route from API/Users 
 $.get("/api/users", function(data){
 //use jQuery to dynamically create cards with the user information 
+const mainColumn = $(".is-one-third");
 const newCard = $("<div>").addClass("card");
 const cardImageDiv = $("<div>").addClass("card-image");
 const figure = $("<figure>").addClass("image is-4by3");
@@ -11,12 +12,36 @@ const columns = $("<div>").addClass("columns");
 const columnOne = $("<div>").addClass("column is-9"); 
 const media = $("<div>").addClass("media");
 const mediaContent = $("<div>").addClass("media-content");
-const dogName = $("<h3>").addClass("title is-4");
+const dogName = $("<h3>").addClass("title is-4").text("Charlie");
 const dogInfo = $("<div>").addClass("content");
 const ulElement = $("<ul>");
-const liElement = $("<li>");
+const liElement = $("<li>").text("Atlanta");
 const columnTwo = $("<div>").addClass("column is-3");
 const boneIcon = $("<i>").addClass("fas fa-bone fa-lg");
+
+
+figure.append(cardImage);
+cardImageDiv.append(figure);
+newCard.append(cardImageDiv); 
+mediaContent.append(dogName);
+mediaContent.append(dogInfo);
+ulElement.append(liElement);
+dogInfo.append(ulElement);
+
+media.append(mediaContent);
+columnOne.append(media);
+columns.append(columnOne);
+
+
+
+
+columns.append(columnTwo);
+cardContent.append(columns);
+newCard.append(cardContent);
+mainColumn.append(newCard);
+
+
+
 console.log(data);
 })
 })
