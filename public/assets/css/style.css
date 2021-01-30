@@ -1,7 +1,13 @@
+/* navbar styling */
 .navbar-menu{
     text-align: right;
 }
 
 .navbar-burger {    
     margin-right: 0;
+}
+
+ul {
+    list-style-type: none !important;
+    margin-left: 0 !important;
 }
