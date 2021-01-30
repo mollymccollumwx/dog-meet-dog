@@ -40,6 +40,34 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+app.get("/connections", (req, res) => {
+  res.render("connections");
+});
+
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
+app.get("/delete-user", (req, res) => {
+  res.render("delete-user");
+});
+
+app.get("/edit-user", (req, res) => {
+  res.render("edit-user");
+});
+
+app.get("/index", (req, res) => {
+  res.render("index");
+});
+
+app.get("/treat-points", (req, res) => {
+  res.render("treat-points");
+});
+
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,
