@@ -1,3 +1,5 @@
+
+//API call to the dog API for list of breeds 
 $(document).ready(function () {
   const breedSelection = $("#breed-selection");
   const APIkey = "b28e0896-2cdc-40c9-bc2a-b043817011ed";
@@ -16,4 +18,18 @@ $(document).ready(function () {
       breedSelection.append(newOption);
     }
   });
+
+$(document).on("submit", "#submit-form", handleUserFormSubmit);
+
+function handleUserFormSubmit(event) {
+  event.preventDefault();
+  //grab value from email input and store it as the users email in the database 
+  console.log()
+}
+
+
+
+
+
 });
+
