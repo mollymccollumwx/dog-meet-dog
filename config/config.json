@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "moose",
+    "password": "charlie22",
     "database": "dog_meet_dog",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logQueryParameters": "true"
   },
   "test": {
     "username": "root",
