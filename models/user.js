@@ -12,6 +12,11 @@ module.exports = function (sequelize, DataTypes) {
         imageLink: DataTypes.STRING,
         dogVaccinated: DataTypes.BOOLEAN,
         treatPoints: DataTypes.INTEGER
-    })
+    });
+    User.associate = function(models) {
+       User.belongsToMany(models.User, {through: models.Connection, as: 'userOnes', foreignKey: 'userOneId'});
+       User.belongsToMany(models.User, {through: models.Connection, as: 'userTwos', foreignKey: 'userTwoId'});
+    }
     return User;
+
 };
