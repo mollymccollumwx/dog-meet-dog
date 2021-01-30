@@ -1,5 +1,4 @@
-
-//API call to the dog API for list of breeds 
+//API call to the dog API for list of breeds
 $(document).ready(function () {
   const breedSelection = $("#breed-selection");
   const APIkey = "b28e0896-2cdc-40c9-bc2a-b043817011ed";
@@ -21,44 +20,63 @@ $(document).ready(function () {
     // breedSelection.append(testOption);
   });
 
-// $(document).on("submit", "#submit-form", handleUserFormSubmit);
+  const fileInput = document.querySelector("#dog-file input[type=file]");
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector("#dog-file .file-name");
+      fileName.textContent = fileInput.files[0].name;
+    }
+  };
 
-$('#submit-form').on("click", function(event){
-  event.preventDefault();
+  // $(document).on("submit", "#submit-form", handleUserFormSubmit);
 
-  const newUser = {
-    email: $("#email").val().trim(),
-    password: $("#password").val().trim(),
-    ownerFirstName: $("#owner-first-name").val().trim(),
-    ownerLastName: $("#owner-last-name").val().trim(),
-    dogName: $("#dog-name").val().trim(),
-    zipCode: $("#zip-code").val().trim(),
-    dogBreed: $("#breed-selection").val(),
-    dogAge: $("#dog-age").val(),
-    dogSize: $("#dog-size").val(),
-    dogVaccinated: $("#vaccinated:checked").val(),
-    friendliness: $('input[name=question]:checked', '#friendliness').val()
-  }
-  // console.log(newUser);
+  $("#submit-form").on("click", function (event) {
+    event.preventDefault();
 
-  $.post("/api/signup", newUser).then(newUser => {
+    const newUser = {
+      email: $("#email").val().trim(),
+      password: $("#password").val().trim(),
+      ownerFirstName: $("#owner-first-name").val().trim(),
+      ownerLastName: $("#owner-last-name").val().trim(),
+      dogName: $("#dog-name").val().trim(),
+      zipCode: $("#zip-code").val().trim(),
+      dogBreed: $("#breed-selection").val(),
+      dogAge: $("#dog-age").val(),
+      dogSize: $("#dog-size").val(),
+      dogVaccinated: $("#vaccinated:checked").val(),
+      friendliness: $("input[name=question]:checked", "#friendliness").val(),
+    };
     console.log(newUser);
+
+    // Add new user to database
+    $.post("/api/signup", newUser).then((newUser) => {
+      console.log(newUser);
+    });
+
+    // Add image link to database (IP)
+    $.post("/upload", fileInput).then((fileInput) => {
+      console.log(fileInput);
+    });
+
+    // Take care of Blob
+    // var FileReader = require("filereader"),
+    //   fileReader = new FileReader();
+    // var file = $(".file-name")[0].files[0];
+    // fileReader.onloadend = function (e) {
+    //   var arrayBuffer = e.target.result;
+    //   var fileType = $("#file-type").val();
+    //   blobUtil
+    //     .arrayBufferToBlob(arrayBuffer, fileType)
+    //     .then(function (blob) {
+    //       console.log("here is a blob", blob);
+    //       console.log("its size is", blob.size);
+    //       console.log("its type is", blob.type);
+    //     })
+    //     .catch(console.log.bind(console));
+    // };
+    // fileReader.readAsArrayBuffer(file);
+
   });
-  
+
+  //grab value from email input and store it as the users email in the database
 });
-
-
-
-
-
-  //grab value from email input and store it as the users email in the database 
-
-
-
-
-
-
-
-
-});
-
