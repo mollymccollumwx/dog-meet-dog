@@ -91,6 +91,12 @@ app.post("/upload", function (req, res, next) {
   // });
 });
 
+app.post("/api/signup", function(req, res) {
+  db.User.create(req.body).then(function(dbUser){
+    res.json(dbUser);
+  });
+});
+
 app.use(UsersController);
 
 db.sequelize

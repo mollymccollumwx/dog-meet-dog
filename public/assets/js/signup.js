@@ -39,14 +39,21 @@ $('#submit-form').on("click", function(event){
     dogVaccinated: $("#vaccinated:checked").val(),
     friendliness: $('input[name=question]:checked', '#friendliness').val()
   }
-  console.log(newUser);
+  // console.log(newUser);
+
+  $.post("/api/signup", newUser).then(newUser => {
+    console.log(newUser);
+  });
+  
 });
+
+
+
 
 
   //grab value from email input and store it as the users email in the database 
 
 
-  console.log()
 
 
 
