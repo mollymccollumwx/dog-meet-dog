@@ -12,12 +12,14 @@ const columns = $("<div>").addClass("columns");
 const columnOne = $("<div>").addClass("column is-9"); 
 const media = $("<div>").addClass("media");
 const mediaContent = $("<div>").addClass("media-content");
-const dogName = $("<h3>").addClass("title is-4").text("Charlie");
+const dogName = $("<h3>").addClass("title is-4").text(data[0].dogName);
 const dogInfo = $("<div>").addClass("content");
 const ulElement = $("<ul>");
 const liElement = $("<li>").text("Atlanta");
 const columnTwo = $("<div>").addClass("column is-3");
 const boneIcon = $("<i>").addClass("fas fa-bone fa-lg");
+// const treatPoints = data[0].treatPoints
+const treatPoints = $("<p>").text(" 100").attr("style", "display: inline");
 
 
 figure.append(cardImage);
@@ -27,14 +29,11 @@ mediaContent.append(dogName);
 mediaContent.append(dogInfo);
 ulElement.append(liElement);
 dogInfo.append(ulElement);
-
 media.append(mediaContent);
 columnOne.append(media);
 columns.append(columnOne);
-
-
-
-
+columnTwo.append(boneIcon);
+columnTwo.append(treatPoints);
 columns.append(columnTwo);
 cardContent.append(columns);
 newCard.append(cardContent);
