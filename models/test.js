@@ -1,6 +1,0 @@
-// Executing (default): CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER NOT NULL auto_increment , `ownerName` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `dogName` VARCHAR(255), `zipCode` INTEGER, `dogSize` VARCHAR(255), `friendliness` VARCHAR(255), `dogAge` INTEGER, `dogBreed` VARCHAR(255), `imageLink` VARCHAR(255), `dogVaccinated` TINYINT(1), `treatPoints` INTEGER, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
-Executing (default): SHOW INDEX FROM `Users` FROM `dog_meet_dog`
-
-Executing (default): CREATE TABLE IF NOT EXISTS `Connections` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userTwoId` INTEGER , `userOneId` INTEGER , PRIMARY KEY (`userTwoId`, `userOneId`), FOREIGN KEY (`userTwoId`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userOneId`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
-
-Executing (default): SHOW INDEX FROM `Connections` FROM `dog_meet_dog`
