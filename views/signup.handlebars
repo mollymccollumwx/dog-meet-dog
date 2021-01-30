@@ -20,7 +20,7 @@
         <div class="field">
             <label class="label">Email</label>
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email">
+                <input id="email" class="input" type="email" placeholder="Email">
                 <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                 </span>
@@ -33,7 +33,7 @@
         <div class="field">
             <label class="label">Password</label>
             <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Password">
+                <input id="password" class="input" type="password" placeholder="Password">
                 <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span>
@@ -43,36 +43,37 @@
         <div class="field">
             <label class="label">Owner's First Name</label>
             <div class="control">
-                <input class="input " type="text" placeholder="First Name">
+                <input id="owner-first-name" class="input" type="text" placeholder="First Name">
             </div>
         </div>
         <div class="field">
             <label class="label">Owner's Last Name</label>
             <div class="control">
-                <input class="input " type="text" placeholder="Last Name">
+                <input id="owner-last-name"class="input" type="text" placeholder="Last Name">
             </div>
         </div>
         {{!-- dog name field --}}
         <div class="field">
             <label class="label">Dog's Name</label>
             <div class="control">
-                <input class="input " type="text" placeholder="Dog Name">
+                <input id="dog-name" class="input " type="text" placeholder="Dog Name">
             </div>
         </div>
         {{!-- zip code field --}}
         <div class="field">
             <label class="label">Zip Code</label>
             <div class="control">
-                <input class="input " type="text" placeholder="Zip Code">
+                <input id="zip-code" class="input " type="text" placeholder="Zip Code">
             </div>
         </div>
         {{!-- breed drop down --}}
         <div class="field">
                 <label class="label">Breed</label>
                 <div class="control">
-                    <div class="select ">
+                    <div class="select">
                         <select id="breed-selection">
                             <option>Select one</option>
+                            <option>Test</option>
                         </select>
                     </div>
                 </div>
@@ -81,8 +82,8 @@
         <div class="field">
             <label class="label">Age</label>
             <div class="control">
-                <div class="select ">
-                    <select>
+                <div class="select">
+                    <select id="dog-age">
                         <option>Select one</option>
                         <option>Puppy</option>
                         <option>Young</option>
@@ -96,8 +97,8 @@
         <div class="field">
             <label class="label">Size</label>
             <div class="control">
-                <div class="select ">
-                    <select>
+                <div  class="select ">
+                    <select id="dog-size">
                         <option>Select one</option>
                         <option>Extra small</option>
                         <option>Small</option>
@@ -112,24 +113,24 @@
         <div class="field">
             <div class="control">
                 <label class="checkbox">
-                    <input type="checkbox">
+                    <input id="vaccinated" type="checkbox" value="1">
                     Dog is vaccinated</a>
                 </label>
             </div>
         </div>
         {{!-- friendliness radio buttons --}}
-        <div class="field">
+        <div id="friendliness" class="field">
             <div class="control">
                 <label class="radio">
-                    <input type="radio" name="question">
+                    <input type="radio" name="question" value="All dog friendly">
                     All dog friendly
                 </label>
                 <label class="radio">
-                    <input type="radio" name="question">
+                    <input type="radio" name="question" value="Small dog friendly">
                     Small dog friendly
                 </label>
                 <label class="radio">
-                    <input type="radio" name="question">
+                    <input type="radio" name="question" value="Large dog friendly">
                     Large dog friendly
                 </label>
             </div>
