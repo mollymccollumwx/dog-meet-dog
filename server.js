@@ -68,6 +68,10 @@ app.get("/treat-points", (req, res) => {
   res.render("treat-points");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,
