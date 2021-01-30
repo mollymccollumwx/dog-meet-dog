@@ -37,6 +37,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//////////////HTML/HANDLEBARS ROUTES//////////////////////
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -75,6 +76,7 @@ app.get("/api/config", (req, res) => {
   });
 });
 
+////////CLOUDINARY TRIAL ROUTE///////////////////////////////////
 app.post("/upload", function (req, res, next) {
   const file = req.files.photo;
   // console.log(file);
@@ -91,6 +93,7 @@ app.post("/upload", function (req, res, next) {
   // });
 });
 
+//////////API ROUTES////////////////////////////////
 app.post("/api/signup", function(req, res) {
   db.User.create(req.body).then(function(dbUser){
     res.json(dbUser);
