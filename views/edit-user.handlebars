@@ -1,6 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item has-text-light" href="https://bulma.io">
             <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
 
@@ -14,24 +14,173 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
-            <a class="navbar-item">
+            <a class="navbar-item has-text-light">
                 Dashboard
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item has-text-light">
                 Connections
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item has-text-light">
                 Treat Points
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item has-text-light">
                 Edit Profile
             </a>
         </div>
     </div>
 </nav>
-<section class="section">
-    <div class="container">
-        <h1 class="title">Edit profile</h1>
+{{!-- container --}}
+<section class="section columns">
+    <div class="container column is-one-third">
+        {{!-- page header & subtitle for the sign-up page --}}
+        <h1 class="title">Edit Profile</h1>
+        {{!-- email field --}}
+        <div class="field">
+            <label class="label">Email</label>
+            <p class="control has-icons-left has-icons-right">
+                <input id="email" class="input" type="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+        {{!-- password field --}}
+        <div class="field">
+            <label class="label">Password</label>
+            <p class="control has-icons-left">
+                <input id="password" class="input" type="password" placeholder="Password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+        {{!-- owner name fields --}}
+        <div class="field">
+            <label class="label">Owner's First Name</label>
+            <div class="control">
+                <input id="owner-first-name" class="input" type="text" placeholder="First Name">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Owner's Last Name</label>
+            <div class="control">
+                <input id="owner-last-name" class="input" type="text" placeholder="Last Name">
+            </div>
+        </div>
+        {{!-- dog name field --}}
+        <div class="field">
+            <label class="label">Dog's Name</label>
+            <div class="control">
+                <input id="dog-name" class="input " type="text" placeholder="Dog Name">
+            </div>
+        </div>
+        {{!-- zip code field --}}
+        <div class="field">
+            <label class="label">Zip Code</label>
+            <div class="control">
+                <input id="zip-code" class="input " type="text" placeholder="Zip Code">
+            </div>
+        </div>
+        {{!-- breed drop down --}}
+        <div class="field">
+            <label class="label">Breed</label>
+            <div class="control">
+                <div class="select">
+                    <select id="breed-selection">
+                        <option disabled="disabled" selected="selected">Select one</option>
+                        <option>Test</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        {{!-- age drop down --}}
+        <div class="field">
+            <label class="label">Age</label>
+            <div class="control">
+                <div class="select">
+                    <select id="dog-age">
+                        <option disabled="disabled" selected="selected">Select one</option>
+                        <option>Puppy</option>
+                        <option>Young</option>
+                        <option>Adult</option>
+                        <option>Senior</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        {{!-- size drop down --}}
+        <div class="field">
+            <label class="label">Size</label>
+            <div class="control">
+                <div class="select ">
+                    <select id="dog-size">
+                        <option disabled="disabled" selected="selected">Select one</option>
+                        <option>Extra small</option>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>Extra large</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        {{!-- vaccine checkbox --}}
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input id="vaccinated" type="checkbox" value="1">
+                    Dog is vaccinated</a>
+                </label>
+            </div>
+        </div>
+        {{!-- friendliness radio buttons --}}
+        <div id="friendliness" class="field">
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="question" value="All dog friendly">
+                    All dog friendly
+                </label>
+                <label class="radio">
+                    <input type="radio" name="question" value="Small dog friendly">
+                    Small dog friendly
+                </label>
+                <label class="radio">
+                    <input type="radio" name="question" value="Large dog friendly">
+                    Large dog friendly
+                </label>
+            </div>
+        </div>
+        {{!-- upload image of your dog --}}
+        <div id="dog-file" class="file has-name is-fullwidth">
+            <label class="file-label">
+                <input class="file-input" type="file" name="resume">
+                <span class="file-cta">
+                    <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        Choose a file…
+                    </span>
+                </span>
+                <span class="file-name" id="file-type" value="image/png">
+                    No file uploaded
+                </span>
+                {{!-- <input class="file-name" class="input " type="text"
+                    placeholder="Upload a picture of your dog"></input> --}}
+            </label>
+        </div>
+        {{!-- submit and cancel buttons for the entire sign-up form --}}
+        <div class="field is-grouped mt-4">
+            <div class="control">
+                <button id="submit-form" class="button is-primary">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-light">Cancel</button>
+            </div>
+        </div>
     </div>
 </section>
