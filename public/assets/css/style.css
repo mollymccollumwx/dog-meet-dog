@@ -12,12 +12,6 @@
   margin-right: 0;
 }
 
-/* .hero {
-  background-image: url("../images/hero-image.jpg");
-  background-size: cover;
-  opacity: 0.5;
-} */
-
 .hero::before {
   content: "";
   background-image: url("../images/hero-image.jpg");
@@ -45,10 +39,3 @@ ul {
 .is-primary {
   background-color: #FA6900 !important;
 }
-
-/* button {
-    padding: 0;
-border: none;
-background: none;
-} */
-
