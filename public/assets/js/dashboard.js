@@ -74,5 +74,10 @@ $(document).ready(function () {
       console.log("card clicked!");
       $(".modal").addClass("is-active");
     });
+
+    $(".delete, .cancel-button").on("click", function (event) {
+      event.preventDefault();
+      $(".modal").removeClass("is-active");
+    })
   });
 });
