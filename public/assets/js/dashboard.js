@@ -61,4 +61,8 @@ $(document).ready(function () {
       dashboard.append(mainColumn);
     }
   });
+
+  // Add event listener to card to show modal
 });
+
+
