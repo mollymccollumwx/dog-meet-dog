@@ -1,5 +1,5 @@
 {
-  "name": "FSF-FT-11-Project-2-Starter",
+  "name": "project2",
   "version": "1.0.0",
   "description": "## Initial App Setup 1. `touch server.js` 2. `npm init -y` 3. `npm install express express-handlebars mysql2 sequelize`",
   "main": "server.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonathanjwatson/FSF-FT-11-Project-2-Starter.git"
+    "url": "git+https://github.com/mollymccollumwx/project2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jonathanjwatson/FSF-FT-11-Project-2-Starter/issues"
+    "url": "https://github.com/mollymccollumwx/project2/issues"
   },
-  "homepage": "https://github.com/jonathanjwatson/FSF-FT-11-Project-2-Starter#readme",
+  "homepage": "https://github.com/mollymccollumwx/project2/blob/main/README.md",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "cloudinary": "^1.23.0",
