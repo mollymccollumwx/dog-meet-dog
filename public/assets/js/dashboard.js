@@ -1,39 +1,53 @@
 $(document).ready(function () {
   //get route from API/Users
   $.get("/api/users", function (data) {
-    //use jQuery to dynamically create cards with the user information
+    //jQuery to dynamically create cards with the user information
     for (let i = 0; i < data.length; i++) {
       const dashboard = $("#dashboard");
-        const mainColumn = $("<div>").addClass("column is-one-third");
+      const mainColumn = $("<div>").addClass("column is-3");
       const newCard = $("<div>").addClass("card");
       const cardImageDiv = $("<div>").addClass("card-image");
-      const figure = $("<figure>").addClass("image is-fullwidth");
-      const cardImage = $("<img>").attr(
-        "src",
-        "https://images.unsplash.com/photo-1566624790190-511a09f6ddbd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nzh8fGRvZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      ).attr("style", "width: 100%");
+      const figure = $("<figure>").addClass("image");
+      const cardImage = $("<img>")
+        .attr("src", data[i].imageLink)
+        .attr("style", "width: 100%");
       const cardContent = $("<div>").addClass("card-content");
       const columns = $("<div>").addClass("columns");
-      const columnOne = $("<div>").addClass("column is-9");
+      const columnOne = $("<div>").addClass("column is-8");
       const media = $("<div>").addClass("media");
       const mediaContent = $("<div>").addClass("media-content");
       const dogName = $("<h3>").addClass("title is-4").text(data[i].dogName);
       const dogInfo = $("<div>").addClass("content");
       const ulElement = $("<ul>");
-      const liElement = $("<li>").text("Atlanta");
-      const columnTwo = $("<div>").addClass("column is-3");
+      const liCity = $("<li>").text(data[i].city);
+      const liDogAge = $("<li>").text(data[i].dogAge);
+      const liDogBreed = $("<li>").text(data[i].dogBreed);
+      const liFriendliness = $("<li>").text(data[i].friendliness);
+      //vaccinated li element with if statement to determine if true or false
+      const liVaccinated = $("<li>");
+      if (data[i].dogVaccinated) {
+        liVaccinated.text("Vaccinated");
+      } else {
+        liVaccinated.text("Not Vaccinated");
+      }
+      const columnTwo = $("<div>").addClass("column is-4");
       const boneIcon = $("<i>").addClass("fas fa-bone fa-lg");
       // const treatPoints = data[0].treatPoints
       const treatPoints = $("<p>")
-        .text(" 100")
+        .text(" " + data[i].treatPoints)
         .attr("style", "display: inline");
 
+      //appending all the elements to the dashboard.handlebars
       figure.append(cardImage);
       cardImageDiv.append(figure);
       newCard.append(cardImageDiv);
       mediaContent.append(dogName);
       mediaContent.append(dogInfo);
-      ulElement.append(liElement);
+      ulElement.append(liCity);
+      ulElement.append(liDogAge);
+      ulElement.append(liDogBreed);
+      ulElement.append(liFriendliness);
+      ulElement.append(liVaccinated);
       dogInfo.append(ulElement);
       media.append(mediaContent);
       columnOne.append(media);
