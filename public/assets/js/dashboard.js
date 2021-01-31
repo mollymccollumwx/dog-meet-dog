@@ -36,6 +36,10 @@ $(document).ready(function () {
       const treatPoints = $("<p>")
         .text(" " + data[i].treatPoints)
         .attr("style", "display: inline");
+      const buttonDiv = $("<div>").addClass("has-text-centered");
+      const connectButton = $("<button>")
+        .addClass("button connect-btn is-large mt-5")
+        .text("Connect!");
 
       //appending all the elements to the dashboard.handlebars
       figure.append(cardImage);
@@ -58,7 +62,16 @@ $(document).ready(function () {
       cardContent.append(columns);
       newCard.append(cardContent);
       mainColumn.append(newCard);
+      buttonDiv.append(connectButton)
+      mainColumn.append(buttonDiv)
       dashboard.append(mainColumn);
     }
+  });
+
+  // Add event listener to card to show modal
+  $(".connect-btn").on("click", function (event) {
+    event.preventDefault();
+    console.log("card clicked!");
+    $(".modal").addClass("is-active");
   });
 });
