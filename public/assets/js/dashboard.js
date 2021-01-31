@@ -1,8 +1,7 @@
 $(document).ready(function () {
   //get route from API/Users
   $.get("/api/users", function (data) {
-    //use jQuery to dynamically create cards with the user information
-
+    //jQuery to dynamically create cards with the user information
     for (let i = 0; i < data.length; i++) {
       const dashboard = $("#dashboard");
       const mainColumn = $("<div>").addClass("column is-3");
@@ -10,11 +9,8 @@ $(document).ready(function () {
       const cardImageDiv = $("<div>").addClass("card-image");
       const figure = $("<figure>").addClass("image");
       const cardImage = $("<img>")
-        .attr(
-          "src",
-          data[i].imageLink
-        )
-        .attr("style", "width: 100%",);
+        .attr("src", data[i].imageLink)
+        .attr("style", "width: 100%");
       const cardContent = $("<div>").addClass("card-content");
       const columns = $("<div>").addClass("columns");
       const columnOne = $("<div>").addClass("column is-8");
@@ -27,13 +23,13 @@ $(document).ready(function () {
       const liDogAge = $("<li>").text(data[i].dogAge);
       const liDogBreed = $("<li>").text(data[i].dogBreed);
       const liFriendliness = $("<li>").text(data[i].friendliness);
+      //vaccinated li element with if statement to determine if true or false
       const liVaccinated = $("<li>");
-      if (data[i].dogVaccinated){
+      if (data[i].dogVaccinated) {
         liVaccinated.text("Vaccinated");
-      } else{
+      } else {
         liVaccinated.text("Not Vaccinated");
-      };
-      
+      }
       const columnTwo = $("<div>").addClass("column is-4");
       const boneIcon = $("<i>").addClass("fas fa-bone fa-lg");
       // const treatPoints = data[0].treatPoints
@@ -41,6 +37,7 @@ $(document).ready(function () {
         .text(" " + data[i].treatPoints)
         .attr("style", "display: inline");
 
+      //appending all the elements to the dashboard.handlebars
       figure.append(cardImage);
       cardImageDiv.append(figure);
       newCard.append(cardImageDiv);
