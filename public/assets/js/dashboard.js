@@ -66,12 +66,16 @@ $(document).ready(function () {
       mainColumn.append(buttonDiv)
       dashboard.append(mainColumn);
     }
-  });
 
-  // Add event listener to card to show modal
+// Add event listener to card to show modal
   $(".connect-btn").on("click", function (event) {
+    console.log(this);
     event.preventDefault();
     console.log("card clicked!");
     $(".modal").addClass("is-active");
   });
+
+  });
+
+  
 });
