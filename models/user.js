@@ -10,7 +10,10 @@ module.exports = function (sequelize, DataTypes) {
         friendliness: DataTypes.STRING,
         dogAge: DataTypes.STRING,
         dogBreed: DataTypes.STRING,
-        imageLink: DataTypes.STRING,
+        imageLink: {
+            type: DataTypes.STRING,
+            defaultValue: "http://res.cloudinary.com/deckz8crp/image/upload/v1612127271/jx0pkn5aolsiepxiorce.png"
+        }, 
         dogVaccinated: DataTypes.BOOLEAN,
         treatPoints: DataTypes.INTEGER
     });
