@@ -27,7 +27,13 @@ $(document).ready(function () {
       const liDogAge = $("<li>").text(data[i].dogAge);
       const liDogBreed = $("<li>").text(data[i].dogBreed);
       const liFriendliness = $("<li>").text(data[i].friendliness);
-      const liVaccinated = $("<li>").text(data[i].vaccinated);
+      const liVaccinated = $("<li>");
+      if (data[i].dogVaccinated){
+        liVaccinated.text("Vaccinated");
+      } else{
+        liVaccinated.text("Not Vaccinated");
+      };
+      
       const columnTwo = $("<div>").addClass("column is-4");
       const boneIcon = $("<i>").addClass("fas fa-bone fa-lg");
       // const treatPoints = data[0].treatPoints
