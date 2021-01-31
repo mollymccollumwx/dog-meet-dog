@@ -79,6 +79,11 @@ $(document).ready(function () {
     $(".delete, .cancel-button").on("click", function (event) {
       event.preventDefault();
       $(".modal").removeClass("is-active");
+    });
+
+    $(".save-button").on("click", function(event){
+      event.preventDefault();
+      location.reload();
     })
   });
 });
