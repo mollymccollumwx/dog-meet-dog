@@ -39,7 +39,7 @@ router.put("/api/users/:id", (req, res) => {
 });
 
 //DELETE Route to delete user from database
-router.delete("/api/user/:id", (req, res) => {
+router.delete("/api/users/:id", (req, res) => {
   db.User.destroy({
     where: {
       id: req.params.id,
@@ -47,6 +47,7 @@ router.delete("/api/user/:id", (req, res) => {
   })
     .then((result) => {
       res.json(result);
+      res.status(200).end();
     })
     .catch((err) => {
       console.log(err);
