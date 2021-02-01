@@ -3,24 +3,6 @@ const db = require("../models");
 
 const router = express.Router();
 
-//VIEWS ROUTES
-//GET Route to render index page
-
-
-//GET Route to render signup page
-
-
-//GET Route to dashboard page
-
-
-//GET Route to connections page
-
-//GET Route to edit user page
-
-//GET Route for delete page
-
-//GET Route for treat points page
-
 
 //API ROUTES
 //GET Route to get all users
