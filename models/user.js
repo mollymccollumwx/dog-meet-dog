@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
         dogBreed: DataTypes.STRING,
         imageLink: {
             type: DataTypes.STRING,
-            defaultValue: "http://res.cloudinary.com/deckz8crp/image/upload/v1612127271/jx0pkn5aolsiepxiorce.png"
+            defaultValue: "http://res.cloudinary.com/deckz8crp/image/upload/v1612142957/hfutnx74mbuoxqndfrwp.png"
         }, 
         dogVaccinated: DataTypes.BOOLEAN,
         treatPoints: DataTypes.INTEGER
