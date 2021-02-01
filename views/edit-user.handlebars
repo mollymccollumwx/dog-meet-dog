@@ -80,9 +80,9 @@
         </div>
         {{!-- zip code field --}}
         <div class="field">
-            <label class="label">Zip Code</label>
+            <label class="label">City</label>
             <div class="control">
-                <input id="zip-code" class="input " type="text" placeholder="Zip Code">
+                <input id="city" class="input " type="text" placeholder="City">
             </div>
         </div>
         {{!-- breed drop down --}}
@@ -141,15 +141,15 @@
         <div id="friendliness" class="field">
             <div class="control">
                 <label class="radio">
-                    <input type="radio" name="question" value="All dog friendly">
+                    <input id= "all-dog-friendly" type="radio" name="question" value="All dog friendly">
                     All dog friendly
                 </label>
                 <label class="radio">
-                    <input type="radio" name="question" value="Small dog friendly">
+                    <input id="small-dog-friendly" type="radio" name="question" value="Small dog friendly">
                     Small dog friendly
                 </label>
                 <label class="radio">
-                    <input type="radio" name="question" value="Large dog friendly">
+                    <input id="large-dog-friendly" type="radio" name="question" value="Large dog friendly">
                     Large dog friendly
                 </label>
             </div>
@@ -176,11 +176,9 @@
         {{!-- submit and cancel buttons for the entire sign-up form --}}
         <div class="field is-grouped mt-4">
             <div class="control">
-                <button id="submit-form" class="button is-primary">Submit</button>
-            </div>
-            <div class="control">
-                <button class="button is-light">Cancel</button>
+                <button id="submit-form" class="button is-primary save-button">Save</button>
             </div>
         </div>
     </div>
 </section>
+<script src="./assets/js/edit-user.js"></script>
