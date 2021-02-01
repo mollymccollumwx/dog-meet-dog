@@ -57,5 +57,8 @@ if(data[0].friendliness==="All dog friendly"){
 //-ImageLink
 const imageLinkValue = $(".file-name").val(data[0].imageLink)
 })
-
+//Event Listener for Save Button
+$(".save-button").on("click", function(event){
+    event.preventDefault()
+})
 })
