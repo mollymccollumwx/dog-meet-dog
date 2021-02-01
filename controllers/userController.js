@@ -40,7 +40,7 @@ router.put("/api/users/:id", (req, res) => {
 
 //DELETE Route to delete user from database
 router.delete("/api/user/:id", (req, res) => {
-  db.User.delete({
+  db.User.destroy({
     where: {
       id: req.params.id,
     },

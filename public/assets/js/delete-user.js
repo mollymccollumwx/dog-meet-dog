@@ -1,14 +1,14 @@
-// $(document).ready(function(){
-//     console.log(req.params);
-//     $(".delete-button").on("click", function(event){
-        
-//         // $.ajax("/api/user/:id",{
-//         //     type:"DELETE"
-//         // }).then(function(){
-//         //     console.log("deleted");
-//         // })
-//     })
+$(document).ready(function() {
+    $(".delete-button").on("click", function(event){
+        event.preventDefault();
+        console.log("you clicked the delete button")
 
-
-
-// })
+        const currentUser = localStorage.getItem("currentUserId");
+        $.ajax({
+            method: "DELETE",
+            url: "/api/users/" + currentUser
+        }).then(function(){
+            console.log(currentUser +" has been deleted");
+        })
+    })
+})
