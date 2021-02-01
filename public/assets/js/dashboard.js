@@ -41,7 +41,8 @@ $(document).ready(function () {
       const buttonDiv = $("<div>").addClass("has-text-centered");
       const connectButton = $("<button>")
         .addClass("button connect-btn is-large mt-5")
-        .text("Connect!").attr("data-id", data[i].id);
+        .text("Connect!")
+        .attr("data-id", data[i].id);
 
       // Appending all the elements to the dashboard.handlebars
       figure.append(cardImage);
@@ -75,8 +76,17 @@ $(document).ready(function () {
     $(".connect-btn").on("click", function (event) {
       console.log(this);
       event.preventDefault();
-      console.log("card clicked!");
-
+      const userOneId = localStorage.getItem("currentUserID");
+      const userTwoId = $(this).data("id");
+      console.log(userOneId);
+      console.log(userTwoId);
+      //post route to grab and store two user ids
+      $.post("/api/connections", {
+        userOneId: userOneId,
+        userTwoId: userTwoId,
+      }).then((response) => {
+        console.log(response);
+      });
       // $(".modal").addClass("is-active");
       // $(".modal-card-title").text("Connect with " + data[0].dogName);
     });
