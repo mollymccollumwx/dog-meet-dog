@@ -1,6 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="/">
             <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
     </div>
@@ -16,7 +16,7 @@
         <div class="field">
             <label class="label">Email</label>
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email">
+                <input id="email" class="input" type="email" placeholder="Email">
                 <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                 </span>
@@ -28,7 +28,7 @@
         <div class="field">
             <label class="label">Password</label>
             <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Password">
+                <input id="password" class="input" type="password" placeholder="Password">
                 <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span>
@@ -36,11 +36,12 @@
         </div>
         <div class="field is-grouped">
             <div class="control">
-                <button class="button is-primary">Submit</button>
+                <button class="button submit-button is-primary">Submit</button>
             </div>
             <div class="control">
-                <button class="button is-light">Cancel</button>
+                <a href="/"><button class="button is-light">Cancel</button></a>
             </div>
         </div>
     </div>
 </section>
+<script src="/assets/js/login.js"></script>
