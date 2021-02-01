@@ -70,7 +70,7 @@ $(document).ready(function () {
 //           id: req.body.id,
 //         },
 //       }).then(user=> {
-//           res.json(user)
+//           res.json(user)h
 //       })
 //     });
 //   });
