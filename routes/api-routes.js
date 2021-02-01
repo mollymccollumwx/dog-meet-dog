@@ -15,7 +15,7 @@ module.exports = function (app) {
     api_secret: "ryfL4bUqAh7PbwfeEzxzcmuS0r4",
   });
 
-  ////////CLOUDINARY TRIAL ROUTE///////////////////////////////////
+  ////////CLOUDINARY ROUTE///////////////////////////////////
   app.post("/upload/:id", function (req, res, next) {
     const file = req.files.photo;
     cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
@@ -31,7 +31,7 @@ module.exports = function (app) {
     });
   });
 
-  //////////API ROUTES////////////////////////////////
+  //////////SIGNUP ROUTES////////////////////////////////
   app.post("/api/signup", function (req, res) {
     db.User.create(req.body).then(function (dbUser) {
       res.json(dbUser);
