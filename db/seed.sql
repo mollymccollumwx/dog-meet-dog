@@ -29,3 +29,6 @@ VALUES
     ("Polly","Pocket","pollypocket@test.com","pippa12345",
     "Pippa","Buford","Extra small", "Small dog friendly",
     "Puppy", "Daschund", "http://res.cloudinary.com/deckz8crp/image/upload/v1612054959/kjveeeqkkwbx53gvgi1w.jpg", true, 200);
+
+INSERT INTO Users (ownerFirstName, ownerLastName, email, password, dogName, city, dogSize, friendliness, dogAge, dogBreed, dogVaccinated)
+VALUES ("Julie", "Hanson","juliehanson@test.com", "abby12345" , "Abby" , "Atlanta" , "Medium" , "Large dog friendly" , "Young" , "American Pit Bull Terrier" , true);
