@@ -1,5 +1,23 @@
 $(document).ready(function () {
 //Select all inputs from form on edit-user.handlebars
+const breedSelection = $("#breed-selection");
+const APIkey = "b28e0896-2cdc-40c9-bc2a-b043817011ed";
+$.ajax({
+  url:
+    "https://cors-anywhere.herokuapp.com/https://api.thedogapi.com/v1/breeds",
+  // headers[“x-api-key”] = "b28e0896-2cdc-40c9-bc2a-b043817011ed",
+  headers: { Authorization: APIkey },
+  method: "GET",
+}).then((response) => {
+  for (let i = 0; i < response.length; i++) {
+    const newOption = $("<option>");
+    newOption.text(response[i].name);
+    breedSelection.append(newOption);
+  }
+  // const testOption = $("<option>").text("test");
+  // breedSelection.append(testOption);
+});
+
 $.get("/api/users", function(data) {
     console.log(data)
     const emailValue = $("#email").val(data[0].email)
@@ -16,6 +34,7 @@ const dogNameValue = $("#dog-name").val(data[0].dogName)
 const cityValue = $("#city").val(data[0].city)
 //-Breed
 const dogBreedValue = $("#breed-selection").val(data[0].dogBreed)
+
 //-Age
 const dogAgeValue = $("#dog-age").val(data[0].dogAge)
 //-Size
