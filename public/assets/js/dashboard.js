@@ -76,8 +76,9 @@ $(document).ready(function () {
       console.log(this);
       event.preventDefault();
       console.log("card clicked!");
-      $(".modal").addClass("is-active");
-      $(".modal-card-title").text("Connect with " + data[0].dogName);
+      
+      // $(".modal").addClass("is-active");
+      // $(".modal-card-title").text("Connect with " + data[0].dogName);
     });
 
     $(".delete, .cancel-button").on("click", function (event) {
