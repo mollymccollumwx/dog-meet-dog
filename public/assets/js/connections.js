@@ -10,7 +10,7 @@ $(document).ready(function(){
         $(".modal").removeClass("is-active");
       });
   
-      $(".save-button").on("click", function (event) {
+      $(".save-button, .back-button").on("click", function (event) {
         event.preventDefault();
         location.reload();
       });
