@@ -7,6 +7,7 @@ const {
 const app = express();
 const db = require("./models");
 const UsersController = require("./controllers/userController");
+const ConnectionsController = require("./controllers/connectionController");
 
 const fileupload = require("express-fileupload");
 app.use(
@@ -50,8 +51,23 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/connections", (req, res) => {
-  res.render("connections");
+app.get("/connections/:id", (req, res) => {
+  db.Connection.findAll({
+    where: {
+      userOneId: req.params.id,
+    },
+    include: [
+      { model: db.User, as: "userOne" },
+      { model: db.User, as: "userTwo" },
+    ],
+  })
+    .then((connections) => {
+      console.log(connections[0].dataValues);
+      res.render("connections", { connections: connections });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.get("/dashboard", (req, res) => {
@@ -86,22 +102,25 @@ app.post("/upload/:id", function (req, res, next) {
   cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
     console.log("Error: ", err);
     console.log("Cloudinary URL: ", result.url);
-    db.User.update({imageLink: result.url}, {where: {id: req.params.id}}).then(updatedUser=> {
-        console.log(updatedUser);
-        res.json({success: true});
-    })
+    db.User.update(
+      { imageLink: result.url },
+      { where: { id: req.params.id } }
+    ).then((updatedUser) => {
+      console.log(updatedUser);
+      res.json({ success: true });
+    });
   });
-
 });
 
 //////////API ROUTES////////////////////////////////
-app.post("/api/signup", function(req, res) {
-  db.User.create(req.body).then(function(dbUser){
+app.post("/api/signup", function (req, res) {
+  db.User.create(req.body).then(function (dbUser) {
     res.json(dbUser);
   });
 });
 
 app.use(UsersController);
+app.use(ConnectionsController);
 
 db.sequelize
   .sync()
