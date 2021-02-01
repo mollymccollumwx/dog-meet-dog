@@ -46,35 +46,27 @@ $(document).ready(function () {
       dogVaccinated: $("#vaccinated:checked").val(),
       friendliness: $("input[name=question]:checked", "#friendliness").val(),
     };
-    console.log(newUser);
 
     // Add new user to database
     $.post("/api/signup", newUser).then((newUser) => {
       console.log(newUser);
-    });
+      var form = new FormData();
+      form.append("photo", fileInput.files[0], "file");
 
-    // Add image link to database (IP)
-    $.post("/upload", fileInput).then((fileInput) => {
-      console.log(fileInput);
-    });
+      var settings = {
+        url: "/upload/" + newUser.id,
+        method: "POST",
+        timeout: 0,
+        processData: false,
+        mimeType: "multipart/form-data",
+        contentType: false,
+        data: form,
+      };
 
-    // Take care of Blob
-    // var FileReader = require("filereader"),
-    //   fileReader = new FileReader();
-    // var file = $(".file-name")[0].files[0];
-    // fileReader.onloadend = function (e) {
-    //   var arrayBuffer = e.target.result;
-    //   var fileType = $("#file-type").val();
-    //   blobUtil
-    //     .arrayBufferToBlob(arrayBuffer, fileType)
-    //     .then(function (blob) {
-    //       console.log("here is a blob", blob);
-    //       console.log("its size is", blob.size);
-    //       console.log("its type is", blob.type);
-    //     })
-    //     .catch(console.log.bind(console));
-    // };
-    // fileReader.readAsArrayBuffer(file);
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+    });
 
   });
 

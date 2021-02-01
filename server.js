@@ -81,20 +81,17 @@ app.get("/api/config", (req, res) => {
 });
 
 ////////CLOUDINARY TRIAL ROUTE///////////////////////////////////
-app.post("/upload", function (req, res, next) {
+app.post("/upload/:id", function (req, res, next) {
   const file = req.files.photo;
-  // console.log(file);
   cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
     console.log("Error: ", err);
     console.log("Cloudinary URL: ", result.url);
+    db.User.update({imageLink: result.url}, {where: {id: req.params.id}}).then(updatedUser=> {
+        console.log(updatedUser);
+        res.json({success: true});
+    })
   });
-  // file.mv("./uploads/" + file.name, function (err, result) {
-  //   if (err) throw err;
-  //   res.send({
-  //     success: true,
-  //     message: "File uploaded!",
-  //   });
-  // });
+
 });
 
 //////////API ROUTES////////////////////////////////
