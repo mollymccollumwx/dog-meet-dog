@@ -43,26 +43,24 @@ $(document).ready(function () {
 
     // Add new user to database
     $.post("/api/signup", newUser).then((newUser) => {
-      console.log(newUser);
-      var form = new FormData();
-      form.append("photo", fileInput.files[0], "file");
+        console.log(newUser);
+        var form = new FormData();
+        form.append("photo", fileInput.files[0], "file");
 
-      var settings = {
-        url: "/upload/" + newUser.id,
-        method: "POST",
-        timeout: 0,
-        processData: false,
-        mimeType: "multipart/form-data",
-        contentType: false,
-        data: form,
-      };
+        var settings = {
+          url: "/upload/" + newUser.id,
+          method: "POST",
+          timeout: 0,
+          processData: false,
+          mimeType: "multipart/form-data",
+          contentType: false,
+          data: form,
+        };
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+        // window.open("/dashboard", "_self");
     });
-
   });
-
-  //grab value from email input and store it as the users email in the database
 });
