@@ -20,10 +20,21 @@ const dogBreedValue = $("#breed-selection").val(data[0].dogBreed)
 const dogAgeValue = $("#dog-age").val(data[0].dogAge)
 //-Size
 const dogSizeValue = $("#dog-size").val(data[0].dogSize)
+const dogVaccinatedValue = $("#vaccinated")
 //-Vaccinated
-const dogVaccinatedValue = $("#vaccinated:checked").val(data[0].dogVaccinated)
+if(data[0].dogVaccinated){
+    dogVaccinatedValue.prop("checked", true)
+} else {
+    dogVaccinatedValue.prop("checked", false)
+}
 //-Friendliness
-const friendlinessValue = $("#friendliness").val(data[0].friendliness)
+if(data[0].friendliness==="All dog friendly"){
+    $("#all-dog-friendly").prop("checked", true)
+} else if(data[0].friendliness==="Large dog friendly"){
+    $("#large-dog-friendly").prop("checked", true)
+}else if(data[0].friendliness==="Small dog friendly"){
+    $("small-dog-friendly").prop("checked", true)
+}
 //-ImageLink
 const imageLinkValue = $(".file-name").val(data[0].imageLink)
 })
