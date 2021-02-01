@@ -87,18 +87,8 @@ $(document).ready(function () {
       }).then((response) => {
         console.log(response);
       });
-      // $(".modal").addClass("is-active");
-      // $(".modal-card-title").text("Connect with " + data[0].dogName);
+      
     });
 
-    $(".delete, .cancel-button").on("click", function (event) {
-      event.preventDefault();
-      $(".modal").removeClass("is-active");
-    });
-
-    $(".save-button").on("click", function (event) {
-      event.preventDefault();
-      location.reload();
-    });
   });
 });

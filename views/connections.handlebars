@@ -14,17 +14,17 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
-            <a href="/dashboard"class="navbar-item has-text-light">
+            <a href="/dashboard" class="navbar-item has-text-light">
                 Dashboard
             </a>
 
-            <a href="/connections"class="navbar-item has-text-light">
+            <a href="/connections" class="navbar-item has-text-light">
                 Connections
             </a>
-            <a href="/treat-points"class="navbar-item has-text-light">
+            <a href="/treat-points" class="navbar-item has-text-light">
                 Treat Points
             </a>
-            <a href="/edit-user"class="navbar-item has-text-light">
+            <a href="/edit-user" class="navbar-item has-text-light">
                 Edit Profile
             </a>
         </div>
@@ -78,9 +78,78 @@
                         </div>
                     </div>
                 </div>
+                <div class="field has-text-centered mt-1">
+                    <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
+
+                    <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met Up!</button></a>
+
+                </div>
 
             </div>
         </div>
+
+        {{!-- message modal --}}
+        <div class="modal message-modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Connect with Moose!</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <h1>You're on your way to one more fur-friend!</h1>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Text input">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="email" placeholder="Email input" value="hello@test.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Textarea"></textarea>
+                        </div>
+                    </div>
+
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button save-button is-primary">Save changes</button>
+                    <button class="button cancel-button">Cancel</button>
+                </footer>
+            </div>
+        </div>
+
+        {{!-- meet modal --}}
+        <div class="modal meet-modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Woof, woof!</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <p>You now have 110 treat points!</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <a href="/treat-points" class="button is-primary">Treat Leader board</a>
+                    <button class="back-button button">Go back</button>
+                </footer>
+            </div>
+        </div>
+
 
 
     </div>
