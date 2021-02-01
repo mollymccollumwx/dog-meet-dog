@@ -11,7 +11,7 @@ $(document).ready(function () {
         // Store to local storage
         localStorage.setItem("currentUserID", response.userId);
         // Open dashboard
-        window.open("/dashboard")
+        window.open("/dashboard","_self")
       } else {
         console.log(response);
       }
