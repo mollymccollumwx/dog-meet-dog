@@ -41,7 +41,7 @@ $(document).ready(function () {
       const buttonDiv = $("<div>").addClass("has-text-centered");
       const connectButton = $("<button>")
         .addClass("button connect-btn is-large mt-5")
-        .text("Connect!");
+        .text("Connect!").attr("data-id", data[i].id);
 
       // Appending all the elements to the dashboard.handlebars
       figure.append(cardImage);
@@ -76,7 +76,7 @@ $(document).ready(function () {
       console.log(this);
       event.preventDefault();
       console.log("card clicked!");
-      
+
       // $(".modal").addClass("is-active");
       // $(".modal-card-title").text("Connect with " + data[0].dogName);
     });

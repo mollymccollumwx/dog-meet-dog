@@ -12,6 +12,7 @@ router.get("/api/connections", (req, res)=> {
 })
 
 
-
 //Post 
-
+router.post("/api/connections", (req, res)=> {
+    db.Connection.create(req.body).then()
+})
