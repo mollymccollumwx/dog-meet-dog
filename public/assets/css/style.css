@@ -49,6 +49,7 @@ ul {
   width: 100%; 
 }
 
+
 .user-image{
   border:3px solid;
   border-color: #FA6900;
@@ -58,3 +59,11 @@ ul {
   object-fit: cover;
   display:flex;
   } 
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
