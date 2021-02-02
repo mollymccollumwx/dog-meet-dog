@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  localStorage.clear();
   const fileInput = document.querySelector("#dog-file input[type=file]");
   fileInput.onchange = () => {
     if (fileInput.files.length > 0) {
