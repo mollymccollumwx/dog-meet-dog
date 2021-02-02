@@ -10,6 +10,16 @@ router.get("/api/users", (req, res) => {
     res.json(allUsers);
   });
 });
+
+// router.get("/api/:id/edit-user", (req, res) => {
+//   db.User.findOne({
+//     where: {
+//       id: req.params.id
+//     }
+//   }).then(singleUser=>{
+//     res.render("edit-user", singleUser.dataValues);
+//   })
+// });
 //POST Route create a new user in database
 router.post("/api/users", (req, res) => {
   db.User.create(req.body)
@@ -192,6 +202,7 @@ router.get("/api/users/senior", (req, res) => {
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
+  console.log(req.body)
   db.User.update(req.body, {
     where: {
       id: req.params.id,
