@@ -11,8 +11,8 @@ $(document).ready(function () {
   $("#extra-small").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked extra small");
-    
-    $.get("/api/users/extra-small", function(data){
+
+    $.get("/api/users/extra-small", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -23,8 +23,8 @@ $(document).ready(function () {
   $("#small").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked small");
-    
-    $.get("/api/users/small", function(data){
+
+    $.get("/api/users/small", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -35,8 +35,8 @@ $(document).ready(function () {
   $("#medium").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked medium");
-    
-    $.get("/api/users/medium", function(data){
+
+    $.get("/api/users/medium", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -47,8 +47,8 @@ $(document).ready(function () {
   $("#large").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked large");
-    
-    $.get("/api/users/large", function(data){
+
+    $.get("/api/users/large", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -59,65 +59,76 @@ $(document).ready(function () {
   $("#extra-large").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked extra-large");
-    
-    $.get("/api/users/extra-large", function(data){
+
+    $.get("/api/users/extra-large", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
     });
   });
 
-    //vaccinated get route
-    $("#vaccinated").on("click", function (event) {
-      event.preventDefault();
-      console.log("You clicked vaccinated");
-      
-      $.get("/api/users/vaccinated", function(data){
-        console.log(data);
-        dashboard.empty();
-        createCards(data);
-      });
+  //vaccinated get route
+  $("#vaccinated").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked vaccinated");
+
+    $.get("/api/users/vaccinated", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
     });
+  });
 
-      //  //vaccinated get route
-      //  $("#not-vaccinated").on("click", function (event) {
-      //   event.preventDefault();
-      //   console.log("You clicked not vaccinated");
-        
-      //   $.get("/api/users/not-vaccinated", function(data){
-      //     console.log(data);
-      //     dashboard.empty();
-      //     createCards(data);
-      //   });
-      // });
+  //  //vaccinated get route
+  //  $("#not-vaccinated").on("click", function (event) {
+  //   event.preventDefault();
+  //   console.log("You clicked not vaccinated");
 
+  //   $.get("/api/users/not-vaccinated", function(data){
+  //     console.log(data);
+  //     dashboard.empty();
+  //     createCards(data);
+  //   });
+  // });
 
-    //all dog friendly
-      $("#all-dog").on("click", function (event) {
-        event.preventDefault();
-        console.log("You clicked all dog friendly");
-        
-        $.get("/api/users/all-dog", function(data){
-          console.log(data);
-          dashboard.empty();
-          createCards(data);
-        });
-      });
+  //all dog friendly
+  $("#all-dog").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked all dog friendly");
 
-      // small dog friendly
-      $("#small-dog").on("click", function (event) {
-        event.preventDefault();
-        console.log("You clicked small dog friendly");
-        
-        $.get("/api/users/small-dog", function(data){
-          console.log(data);
-          dashboard.empty();
-          createCards(data);
-        });
-      });
+    $.get("/api/users/all-dog", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
 
-  // function to dynamically generate cards 
-  function createCards(data){
+  // small dog friendly
+  $("#small-dog").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked small dog friendly");
+
+    $.get("/api/users/small-dog", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  // large dog friendly
+  $("#large-dog").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked large dog friendly");
+
+    $.get("/api/users/large-dog", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  // function to dynamically generate cards
+  function createCards(data) {
     for (let i = 0; i < data.length; i++) {
       // Variables to create cards
       // const dashboard = $("#dashboard");
@@ -201,7 +212,7 @@ $(document).ready(function () {
         userTwoId: userTwoId,
       }).then((response) => {
         console.log(response);
-      }); 
+      });
     });
   }
 });

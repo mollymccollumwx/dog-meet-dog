@@ -129,6 +129,18 @@ router.get("/api/users/small-dog", (req, res) => {
 
 });
 
+//Get route for large dog friendly
+router.get("/api/users/large-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "Large dog friendly",
+    },
+  }).then((largeDogFriendly) => {
+    res.json(largeDogFriendly);
+  })
+
+});
+
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
