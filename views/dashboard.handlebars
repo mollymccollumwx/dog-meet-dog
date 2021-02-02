@@ -4,6 +4,9 @@
 <section class="section">
   <div class="container">
     <h1 class="title has-text-centered">Doggie Dashboard</h1>
+    <h1 class="subtitle has-text-centered mt-1">Search By: </h1>
+    <div class="columns">
+      <div class="column has-text-centered">
     <div class="dropdown is-hoverable m-3">
       <div class="dropdown-trigger">
         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -55,8 +58,60 @@
         </div>
       </div>
     </div>
+      {{!-- friendliness drop down --}}
+      <div class="dropdown is-hoverable m-3">
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span class="pr-3">Dog Friendliness</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+          <a href="#" class="dropdown-item" id="all-dog">
+            All Dog Friendly
+          </a>
+          <a class="dropdown-item" id="small-dog">
+            Small Dog Friendly
+          </a>
+          <a class="dropdown-item" id="large-dog">
+            Large Dog Friendly
+          </a>
+        </div>
+      </div>
+    </div>
 
-    
+      {{!-- age drop down --}}
+      <div class="dropdown is-hoverable m-3">
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span class="pr-3">Dog Age</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+          <a href="#" class="dropdown-item" id="all-dog">
+            Puppy
+          </a>
+          <a class="dropdown-item" id="small-dog">
+            Young
+          </a>
+          <a class="dropdown-item" id="large-dog">
+            Adult
+          </a>
+          <a class="dropdown-item" id="large-dog">
+            Senior
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
     
     <div id="dashboard" class="columns is-multiline">
 

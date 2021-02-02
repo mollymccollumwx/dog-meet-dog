@@ -79,6 +79,18 @@ $(document).ready(function () {
       });
     });
 
+      //  //vaccinated get route
+      //  $("#not-vaccinated").on("click", function (event) {
+      //   event.preventDefault();
+      //   console.log("You clicked not vaccinated");
+        
+      //   $.get("/api/users/not-vaccinated", function(data){
+      //     console.log(data);
+      //     dashboard.empty();
+      //     createCards(data);
+      //   });
+      // });
+
 
   // function to dynamically generate cards 
   function createCards(data){
