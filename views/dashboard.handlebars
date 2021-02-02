@@ -1,89 +1,122 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item has-text-light" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-        </a>
+{{> navbar/main-navbar}}
 
-        <a role="button" class="navbar-burger"
-            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" aria-label="menu"
-            aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-            <a href="/dashboard" class="navbar-item has-text-light">
-                Dashboard
-            </a>
-
-            <a href="/connections" class="navbar-item has-text-light">
-                Connections
-            </a>
-            <a href="/treat-points"class="navbar-item has-text-light">
-                Treat Points
-            </a>
-            <a href="edit-user"class="navbar-item has-text-light">
-                Edit Profile
-            </a>
-        </div>
-    </div>
-</nav>
 <section class="section">
-    <div class="container">
+  <div class="container">
+    <h1 class="title has-text-centered">Doggie Dashboard</h1>
+    <h1 class="subtitle has-text-centered mt-1">Search By: </h1>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="dropdown is-hoverable m-3">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span class="pr-3">Size </span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item" id="extra-small">
+                Extra Small
+              </a>
+              <a class="dropdown-item" id="small">
+                Small
+              </a>
+              <a href="#" class="dropdown-item" id="medium">
+                Medium
+              </a>
+              <a href="#" class="dropdown-item" id="large">
+                Large
+              </a>
+              <a href="#" class="dropdown-item" id="extra-large">
+                Extra Large
+              </a>
 
-        <h1 class="title has-text-centered">Doggie Dashboard</h1>
-        <div id="dashboard" class="columns is-multiline">
-
-        </div>
-        <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title"></p>
-                    <button class="delete" aria-label="close"></button>
-                </header>
-                <section class="modal-card-body">
-                    <!-- Content ... -->
-
-                    <div class="field">
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Text input">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="email" placeholder="Email input" value="hello@test.com">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            {{!-- <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span> --}}
-                        </div>
-                        {{!-- <p class="help is-danger">This email is invalid</p> --}}
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Message</label>
-                        <div class="control">
-                            <textarea class="textarea" placeholder="Textarea"></textarea>
-                        </div>
-                    </div>
-
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button save-button is-success">Save changes</button>
-                    <button class="button cancel-button">Cancel</button>
-                </footer>
             </div>
+          </div>
+        </div>
+        {{!-- vaccinated drop down --}}
+        <div class="dropdown is-hoverable m-3">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span class="pr-3">Vaccinated</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item" id="vaccinated">
+                Vaccinated
+              </a>
+              <a class="dropdown-item" id="not-vaccinated">
+                Not Vaccinated
+              </a>
+            </div>
+          </div>
+        </div>
+        {{!-- friendliness drop down --}}
+        <div class="dropdown is-hoverable m-3">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span class="pr-3">Dog Friendliness</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item" id="all-dog">
+                All Dog Friendly
+              </a>
+              <a class="dropdown-item" id="small-dog">
+                Small Dog Friendly
+              </a>
+              <a class="dropdown-item" id="large-dog">
+                Large Dog Friendly
+              </a>
+            </div>
+          </div>
         </div>
 
+        {{!-- age drop down --}}
+        <div class="dropdown is-hoverable m-3">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span class="pr-3">Dog Age</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item" id="puppy">
+                Puppy
+              </a>
+              <a class="dropdown-item" id="young">
+                Young
+              </a>
+              <a class="dropdown-item" id="adult">
+                Adult
+              </a>
+              <a class="dropdown-item" id="senior">
+                Senior
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dashboard" class="columns is-multiline">
 
     </div>
+
+
+  </div>
 </section>
 <script src="/assets/js/dashboard.js"></script>

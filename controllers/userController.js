@@ -31,6 +31,174 @@ router.post("/api/users", (req, res) => {
       res.status(500).end();
     });
 });
+// get route for all extra small dogs
+router.get("/api/users/extra-small", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Extra Small",
+    },
+  }).then((extraSmallDogs) => {
+    res.json(extraSmallDogs);
+  })
+  
+});
+
+//Get route for small dogs
+router.get("/api/users/small", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Small",
+    },
+  }).then((smallDogs) => {
+    res.json(smallDogs);
+  })
+  
+});
+
+//Get route for medium dogs
+router.get("/api/users/medium", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Medium",
+    },
+  }).then((mediumDogs) => {
+    res.json(mediumDogs);
+  })
+  
+});
+
+//Get route for large dogs
+router.get("/api/users/large", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Large",
+    },
+  }).then((largeDogs) => {
+    res.json(largeDogs);
+  })
+
+});
+
+//Get route for extra-large dogs
+router.get("/api/users/extra-large", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Extra Large",
+    },
+  }).then((extraLargeDogs) => {
+    res.json(extraLargeDogs);
+  })
+
+});
+
+//Get route for vaccinated dogs
+router.get("/api/users/vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: true,
+    },
+  }).then((vaccinated) => {
+    res.json(vaccinated);
+  })
+
+});
+
+// Get route for vaccinated dogs
+router.get("/api/users/not-vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: false,
+    },
+  }).then((notVaccinated) => {
+    res.json(notVaccinated);
+  })
+
+});
+
+//Get route for all dog friendly
+router.get("/api/users/all-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "All dog friendly",
+    },
+  }).then((allDogFriendly) => {
+    res.json(allDogFriendly);
+  })
+
+});
+
+//Get route for all dog friendly
+router.get("/api/users/small-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "Small dog friendly",
+    },
+  }).then((smallDogFriendly) => {
+    res.json(smallDogFriendly);
+  })
+
+});
+
+//Get route for large dog friendly
+router.get("/api/users/large-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "Large dog friendly",
+    },
+  }).then((largeDogFriendly) => {
+    res.json(largeDogFriendly);
+  })
+
+});
+
+//Get route for puppy age
+router.get("/api/users/puppy", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Puppy",
+    },
+  }).then((puppy) => {
+    res.json(puppy);
+  })
+
+});
+
+//Get route for young age
+router.get("/api/users/young", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Young",
+    },
+  }).then((young) => {
+    res.json(young);
+  })
+
+});
+
+//Get route for adult age
+router.get("/api/users/adult", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Adult",
+    },
+  }).then((adult) => {
+    res.json(adult);
+  })
+
+});
+
+//Get route for senior age
+router.get("/api/users/senior", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Senior",
+    },
+  }).then((senior) => {
+    res.json(senior);
+  })
+
+});
+
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
