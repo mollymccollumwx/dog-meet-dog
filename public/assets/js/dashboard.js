@@ -127,6 +127,18 @@ $(document).ready(function () {
     });
   });
 
+   // large dog friendly
+   $("#puppy").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked puppy");
+
+    $.get("/api/users/puppy", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
   // function to dynamically generate cards
   function createCards(data) {
     for (let i = 0; i < data.length; i++) {

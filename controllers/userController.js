@@ -141,6 +141,18 @@ router.get("/api/users/large-dog", (req, res) => {
 
 });
 
+//Get route for puppy age
+router.get("/api/users/puppy", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Puppy",
+    },
+  }).then((puppy) => {
+    res.json(puppy);
+  })
+
+});
+
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
