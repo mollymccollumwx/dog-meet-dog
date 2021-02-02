@@ -79,17 +79,17 @@ $(document).ready(function () {
     });
   });
 
-  //  //vaccinated get route
-  //  $("#not-vaccinated").on("click", function (event) {
-  //   event.preventDefault();
-  //   console.log("You clicked not vaccinated");
+   //vaccinated get route
+   $("#not-vaccinated").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked not vaccinated");
 
-  //   $.get("/api/users/not-vaccinated", function(data){
-  //     console.log(data);
-  //     dashboard.empty();
-  //     createCards(data);
-  //   });
-  // });
+    $.get("/api/users/not-vaccinated", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
 
   //all dog friendly
   $("#all-dog").on("click", function (event) {
@@ -127,7 +127,7 @@ $(document).ready(function () {
     });
   });
 
-   // large dog friendly
+   // age query for puppy
    $("#puppy").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked puppy");
@@ -138,7 +138,41 @@ $(document).ready(function () {
       createCards(data);
     });
   });
+    // age query for young
+    $("#young").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked young");
+  
+      $.get("/api/users/young", function (data) {
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
 
+     // age query for young
+     $("#adult").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked adult");
+  
+      $.get("/api/users/adult", function (data) {
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
+
+     // age query for young
+     $("#senior").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked senior");
+  
+      $.get("/api/users/senior", function (data) {
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
   // function to dynamically generate cards
   function createCards(data) {
     for (let i = 0; i < data.length; i++) {

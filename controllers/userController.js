@@ -93,17 +93,17 @@ router.get("/api/users/vaccinated", (req, res) => {
 
 });
 
-//Get route for vaccinated dogs
-// router.get("/api/users/not-vaccinated", (req, res) => {
-//   db.User.findAll({
-//     where: {
-//       dogVaccinated: false,
-//     },
-//   }).then((notVaccinated) => {
-//     res.json(notVaccinated);
-//   })
+// Get route for vaccinated dogs
+router.get("/api/users/not-vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: false,
+    },
+  }).then((notVaccinated) => {
+    res.json(notVaccinated);
+  })
 
-// });
+});
 
 //Get route for all dog friendly
 router.get("/api/users/all-dog", (req, res) => {
@@ -149,6 +149,42 @@ router.get("/api/users/puppy", (req, res) => {
     },
   }).then((puppy) => {
     res.json(puppy);
+  })
+
+});
+
+//Get route for young age
+router.get("/api/users/young", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Young",
+    },
+  }).then((young) => {
+    res.json(young);
+  })
+
+});
+
+//Get route for adult age
+router.get("/api/users/adult", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Adult",
+    },
+  }).then((adult) => {
+    res.json(adult);
+  })
+
+});
+
+//Get route for senior age
+router.get("/api/users/senior", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Senior",
+    },
+  }).then((senior) => {
+    res.json(senior);
   })
 
 });
