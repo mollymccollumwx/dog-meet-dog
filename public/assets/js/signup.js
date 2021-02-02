@@ -60,7 +60,7 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
           console.log(response);
         });
-        // window.open("/dashboard", "_self");
+        window.open("/login", "_self");
     });
   });
 });
