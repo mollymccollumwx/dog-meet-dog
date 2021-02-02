@@ -84,7 +84,8 @@ $(document).ready(function () {
       data: updatedUser,
     }).then(response=>{
       // console.log("Promised reached")
-      console.log(response)
+      console.log(response);
+      window.open("/dashboard", "_self");
     })
   });
 });
