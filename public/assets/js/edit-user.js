@@ -17,45 +17,45 @@ $(document).ready(function () {
     }
   });
   const currentUser = localStorage.getItem("currentUserID");
-  // $.get("/api/users/" + currentUser, function (data) {
-  //   console.log(data);
-  //   const emailValue = $("#email").val(data.email);
+  $.get("/api/users/" + currentUser, function (data) {
+    console.log(data);
+    const emailValue = $("#email").val(data.email);
 
-  //   //-Password
-  //   const passwordValue = $("#password").val(data.password);
-  //   //-Owners First Name
-  //   const ownerFirstNameValue = $("#owner-first-name").val(data.ownerFirstName);
-  //   //-Owners Last Name
-  //   const ownerLastNameValue = $("#owner-last-name").val(data.ownerLastName);
-  //   //-Dog Name
-  //   const dogNameValue = $("#dog-name").val(data.dogName);
-  //   //-Zip Code
-  //   const cityValue = $("#city").val(data.city);
-  //   //-Breed
-  //   const dogBreedValue = $("#breed-selection").val(data.dogBreed);
+    //-Password
+    const passwordValue = $("#password").val(data.password);
+    //-Owners First Name
+    const ownerFirstNameValue = $("#owner-first-name").val(data.ownerFirstName);
+    //-Owners Last Name
+    const ownerLastNameValue = $("#owner-last-name").val(data.ownerLastName);
+    //-Dog Name
+    const dogNameValue = $("#dog-name").val(data.dogName);
+    //-Zip Code
+    const cityValue = $("#city").val(data.city);
+    //-Breed
+    const dogBreedValue = $("#breed-selection").val(data.dogBreed);
 
-  //   //-Age
-  //   const dogAgeValue = $("#dog-age").val(data.dogAge);
-  //   //-Size
-  //   const dogSizeValue = $("#dog-size").val(data.dogSize);
-  //   const dogVaccinatedValue = $("#vaccinated");
-  //   //-Vaccinated
-  //   if (data.dogVaccinated) {
-  //     dogVaccinatedValue.prop("checked", true);
-  //   } else {
-  //     dogVaccinatedValue.prop("checked", false);
-  //   }
-  //   //-Friendliness
-  //   if (data.friendliness === "All dog friendly") {
-  //     $("#all-dog-friendly").prop("checked", true);
-  //   } else if (data.friendliness === "Large dog friendly") {
-  //     $("#large-dog-friendly").prop("checked", true);
-  //   } else if (data.friendliness === "Small dog friendly") {
-  //     $("small-dog-friendly").prop("checked", true);
-  //   }
-  //   //-ImageLink
-  //   const imageLinkValue = $(".file-name").val(data.imageLink);
-  // });
+    //-Age
+    const dogAgeValue = $("#dog-age").val(data.dogAge);
+    //-Size
+    const dogSizeValue = $("#dog-size").val(data.dogSize);
+    const dogVaccinatedValue = $("#vaccinated");
+    //-Vaccinated
+    if (data.dogVaccinated) {
+      dogVaccinatedValue.prop("checked", true);
+    } else {
+      dogVaccinatedValue.prop("checked", false);
+    }
+    //-Friendliness
+    if (data.friendliness === "All dog friendly") {
+      $("#all-dog-friendly").prop("checked", true);
+    } else if (data.friendliness === "Large dog friendly") {
+      $("#large-dog-friendly").prop("checked", true);
+    } else if (data.friendliness === "Small dog friendly") {
+      $("small-dog-friendly").prop("checked", true);
+    }
+    //-ImageLink
+    const imageLinkValue = $(".file-name").val(data.imageLink);
+  });
   //Event Listener for Save Button
   $(".save-button").on("click", function (event) {
     event.preventDefault();
@@ -80,7 +80,8 @@ $(document).ready(function () {
     // })
     $.ajax({
       method: "PUT", 
-      url: "/api/" + currentUser + "/edit-user"
+      url: "/api/users/" + currentUser,
+      data: updatedUser,
     }).then(response=>{
       // console.log("Promised reached")
       console.log(response)
