@@ -9,7 +9,7 @@ $(document).ready(function () {
     const ownerLastNameValue = $("#owner-last-name").val(data.ownerLastName);
     const dogNameValue = $("#dog-name").val(data.dogName);
     const cityValue = $("#city").val(data.city);
-    const dogBreedValue = $("#breed-selection").val(data.dogBreed);
+    const dogBreedValue = $("#dog-breed").val(data.dogBreed);
     const dogAgeValue = $("#dog-age").val(data.dogAge);
     const dogSizeValue = $("#dog-size").val(data.dogSize);
     const dogVaccinatedValue = $("#vaccinated");

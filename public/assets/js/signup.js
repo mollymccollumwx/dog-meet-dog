@@ -19,7 +19,7 @@ $(document).ready(function () {
       ownerLastName: $("#owner-last-name").val().trim(),
       dogName: $("#dog-name").val().trim(),
       city: $("#city").val().trim(),
-      dogBreed: $("#breed-selection").val(),
+      dogBreed: $("#dog-breed").val(),
       dogAge: $("#dog-age").val(),
       dogSize: $("#dog-size").val(),
       dogVaccinated: $("#vaccinated:checked").val(),
