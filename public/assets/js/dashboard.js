@@ -1,10 +1,12 @@
 $(document).ready(function () {
   var dashboard = $("#dashboard");
+
   //get route from API/Users
   $.get("/api/users", function (data) {
     //jQuery to dynamically create cards with the user information
     createCards(data);
   });
+
   // extra small get route
   $("#extra-small").on("click", function (event) {
     event.preventDefault();
@@ -41,7 +43,6 @@ $(document).ready(function () {
     });
   });
 
-
   // large get route
   $("#large").on("click", function (event) {
     event.preventDefault();
@@ -65,6 +66,18 @@ $(document).ready(function () {
       createCards(data);
     });
   });
+
+    //vaccinated get route
+    $("#vaccinated").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked vaccinated");
+      
+      $.get("/api/users/vaccinated", function(data){
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
 
 
   // function to dynamically generate cards 

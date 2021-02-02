@@ -81,7 +81,29 @@ router.get("/api/users/extra-large", (req, res) => {
 
 });
 
+//Get route for vaccinated dogs
+router.get("/api/users/vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: true,
+    },
+  }).then((vaccinated) => {
+    res.json(vaccinated);
+  })
 
+});
+
+//Get route for vaccinated dogs
+router.get("/api/users/not-vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: false,
+    },
+  }).then((vaccinated) => {
+    res.json(vaccinated);
+  })
+
+});
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
