@@ -38,17 +38,15 @@
         <div class="columns is-gapless is-centered">
             <div class="column is-2">
                 <figure class="image is-128x128">
-                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                    <img class="is-rounded user-image">
                 </figure>
             </div>
             <div class="column is-4">
-                <h1 class="is-size-1">Bow, wow Moose! </h1>
+                <h1 class="is-size-1" id="welcome-message"></h1>
                 <h2>Your ulti-mutt list of connections </h2>
             </div>
         </div>
         <div id="connections" class="columns is-multiline">
-
-
             {{#each connections}}
 
                 <div class="column is-3">

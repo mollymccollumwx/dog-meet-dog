@@ -1,5 +1,14 @@
 $(document).ready(function () {
   //GET route for connections/id
+
+  const currentUser = localStorage.getItem("currentUserID");
+  $.get("/api/users/" + currentUser, function (data) {
+    console.log(data);
+
+    $("#welcome-message").text("Bow wow, " + data.dogName + "!");
+    $(".user-image").attr("src", data.imageLink);
+  });
+
   $("#connections-link").on("click", function (event) {
     event.preventDefault();
     console.log("Connections Linked Clicked");
@@ -40,10 +49,8 @@ $(document).ready(function () {
     event.preventDefault();
     $(".meet-modal").addClass("is-active");
   });
-  // $(function () {
+
   $("#email-link").on("click", function (event) {
     event.preventDefault();
   });
-  // });
-  // mailto:mollymccollumwx@gmail.com
 });
