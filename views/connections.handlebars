@@ -92,11 +92,10 @@
                         </div>
                     </div>
                     <div class="field has-text-centered mt-1">
-                        <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
+                        <button value={{email}} data-id={{id}} class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
 
                         <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met
                             Up!</button></a>
-
                     </div>
                 </div>
                 {{/each}}
@@ -141,7 +140,10 @@
 
             </section>
             <footer class="modal-card-foot">
-                <a href="mailto:mollymccollumwx@gmail.com"><button class="button save-button is-primary">Save changes</button></a>
+                
+                <a id="email-link" class="button save-button is-primary">Save Changes</a>
+                
+                {{!-- <button class="button save-button is-primary">Save changes</button> --}}
                 <button class="button cancel-button">Cancel</button>
             </footer>
         </div>
