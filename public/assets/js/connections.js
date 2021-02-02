@@ -6,7 +6,7 @@ $(document).ready(function () {
     console.log(data);
 
     $("#welcome-message").text("Bow wow, " + data.dogName + "!");
-    $(".user-image").attr("src", data.imageLink);
+    $(".user-image").attr("src", data.imageLink).attr();
   });
 
   $("#connections-link").on("click", function (event) {
