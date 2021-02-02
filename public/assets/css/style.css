@@ -4,6 +4,10 @@
   background-color: #68D1E7;
 }
 
+.navbar-link:hover, a.navbar-item:hover {
+  color: rgb(85, 85, 85) !important;
+}
+
 .navbar-menu {
   text-align: right;
 }
