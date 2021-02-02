@@ -1,14 +1,45 @@
 
 {{> navbar/main-navbar}}
-<section class="section">
-    <div class="container">
 
-        <h1 class="title has-text-centered">Doggie Dashboard</h1>
-        <div id="dashboard" class="columns is-multiline">
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">Doggie Dashboard</h1>
+    <div class="dropdown is-hoverable m-3">
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span class="pr-3">Size </span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+          <a href="#" class="dropdown-item" id="extra-small">
+            Extra Small
+          </a>
+          <a class="dropdown-item">
+            Small
+          </a>
+          <a href="#" class="dropdown-item">
+            Medium
+          </a>
+          <a href="#" class="dropdown-item">
+            Large
+          </a>
+          <a href="#" class="dropdown-item">
+            Extra Large
+          </a>
 
         </div>
-
+      </div>
+    </div>
+    
+    <div id="dashboard" class="columns is-multiline">
 
     </div>
+
+
+  </div>
 </section>
 <script src="/assets/js/dashboard.js"></script>

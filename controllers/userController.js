@@ -21,6 +21,17 @@ router.post("/api/users", (req, res) => {
       res.status(500).end();
     });
 });
+// get route for all extra small dogs
+router.get("/api/users/extra-small", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Extra Small",
+    },
+  }).then((extraSmallDogs) => {
+    res.json(extraSmallDogs);
+  })
+  
+});
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {

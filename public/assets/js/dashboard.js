@@ -1,10 +1,28 @@
 $(document).ready(function () {
+  var dashboard = $("#dashboard");
   //get route from API/Users
   $.get("/api/users", function (data) {
     //jQuery to dynamically create cards with the user information
+    createCards(data);
+  });
+  // extra small get route
+  $("#extra-small").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked extra small");
+    
+    $.get("/api/users/extra-small", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+
+  // function to dynamically generate cards 
+  function createCards(data){
     for (let i = 0; i < data.length; i++) {
       // Variables to create cards
-      const dashboard = $("#dashboard");
+      // const dashboard = $("#dashboard");
       const mainColumn = $("<div>").addClass("column is-3");
       const newCard = $("<div>").addClass("card");
       const cardImageDiv = $("<div>").addClass("card-image");
@@ -72,7 +90,6 @@ $(document).ready(function () {
       dashboard.append(mainColumn);
     }
 
-    // Add event listener to card to show modal
     $(".connect-btn").on("click", function (event) {
       console.log(this);
       event.preventDefault();
@@ -86,9 +103,7 @@ $(document).ready(function () {
         userTwoId: userTwoId,
       }).then((response) => {
         console.log(response);
-      });
-      
+      }); 
     });
-
-  });
+  }
 });
