@@ -4,6 +4,10 @@
   background-color: #68D1E7;
 }
 
+.navbar-link:hover, a.navbar-item:hover {
+  color: rgb(85, 85, 85) !important;
+}
+
 .navbar-menu {
   text-align: right;
 }
@@ -45,9 +49,24 @@ ul {
   background-color: #FA6900 !important;
 }
 
+.fa-paw {
+  color: #FA6900 !important;
+}
+
 #connections-image {
   width: 100%; 
 }
+
+
+.user-image{
+  border:3px solid;
+  border-color: #FA6900;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  object-fit: cover;
+  display:flex;
+  } 
 
 footer {
   position: fixed;
@@ -55,3 +74,4 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
