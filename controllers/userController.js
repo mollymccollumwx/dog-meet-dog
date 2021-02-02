@@ -11,15 +11,6 @@ router.get("/api/users", (req, res) => {
   });
 });
 
-// router.get("/api/:id/edit-user", (req, res) => {
-//   db.User.findOne({
-//     where: {
-//       id: req.params.id
-//     }
-//   }).then(singleUser=>{
-//     res.render("edit-user", singleUser.dataValues);
-//   })
-// });
 //POST Route create a new user in database
 router.post("/api/users", (req, res) => {
   db.User.create(req.body)
