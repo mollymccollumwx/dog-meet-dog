@@ -17,6 +17,55 @@ $(document).ready(function () {
     });
   });
 
+  // small get route
+  $("#small").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked small");
+    
+    $.get("/api/users/small", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  // medium get route
+  $("#medium").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked medium");
+    
+    $.get("/api/users/medium", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+
+  // large get route
+  $("#large").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked large");
+    
+    $.get("/api/users/large", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  // extra-large get route
+  $("#extra-large").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked extra-large");
+    
+    $.get("/api/users/extra-large", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
 
   // function to dynamically generate cards 
   function createCards(data){
