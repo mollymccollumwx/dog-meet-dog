@@ -252,13 +252,28 @@ $(document).ready(function () {
       const userTwoId = $(this).data("id");
       console.log(userOneId);
       console.log(userTwoId);
+
+       $(".connect-modal").addClass("is-active");
+       $("#connect-name").text("You just made a connection!");
       //post route to grab and store two user ids
       $.post("/api/connections", {
         userOneId: userOneId,
         userTwoId: userTwoId,
       }).then((response) => {
         console.log(response);
+         
+        
       });
+
+      $(".cancel-button").on("click", function(event){
+        event.preventDefault();
+        location.reload();
+      });
+
+      $(".connections-button").on("click", function(event){
+        event.preventDefault();
+        window.open("/connections/" + userOneId, "_self");
+      })
     });
   }
 });
