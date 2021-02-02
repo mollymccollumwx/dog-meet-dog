@@ -44,3 +44,7 @@ ul {
 .is-primary {
   background-color: #FA6900 !important;
 }
+
+#connections-image {
+  width: 100%; 
+}

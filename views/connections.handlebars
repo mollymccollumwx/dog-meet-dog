@@ -50,60 +50,62 @@
 
 
             {{#each connections}}
-            
+
             {{!-- buttons for card rendering --}}
             {{!-- <div class="field has-text-centered mt-1">
                 <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
 
                 <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met Up!</button></a> --}}
 
-           
 
 
-            <div class="column is-3">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src={{imageLink}} alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="columns">
-                            <div class="column is-9">
-                                <div class="media">
 
-                                    <div class="media-content">
-                                        <h3 class="title is-4">John Smith</h3>
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img id="connections-image" src={{imageLink}} alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="columns">
+                                <div class="column is-9">
+                                    <div class="media">
+
+                                        <div class="media-content">
+                                            <h3 class="title is-4">{{dogName}}</h3>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <ul>
+                                            <li>{{city}} 📍</li>
+                                            <li>{{dogAge}} 🎂</li>
+                                            <li>{{dogBreed}} 🐶</li>
+                                            <li>{{friendliness}} 😁</li>
+                                            <li>{{dogVaccinated}} 💉</li>
+                                        </ul>
 
                                     </div>
                                 </div>
-
-                                <div class="content">
-                                    <ul>
-                                        <li>Atlanta</li>
-                                        <li>Young</li>
-                                        <li>Beagle</li>
-                                        <li>All dog friendly</li>
-                                        <li>Vaccinated</li>
-                                    </ul>
-
+                                <div class="column is-3">
+                                    <i class="fas fa-bone fa-lg"></i> {{treatPoints}}
                                 </div>
                             </div>
-                            <div class="column is-3">
-                                <i class="fas fa-bone fa-lg"></i> 100
-                            </div>
                         </div>
+                    </div>
+                    <div class="field has-text-centered mt-1">
+                        <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
 
-
+                        <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met
+                            Up!</button></a>
 
                     </div>
                 </div>
+                {{/each}}
             </div>
-        
-
-        {{/each}}
         </div>
-    </div>
     </div>
 
     {{!-- message modal --}}
