@@ -3,10 +3,8 @@ $(document).ready(function () {
 
   const currentUser = localStorage.getItem("currentUserID");
   $.get("/api/users/" + currentUser, function (data) {
-    console.log(data);
-
     $("#welcome-message").text("Bow wow, " + data.dogName + "!");
-    $(".user-image").attr("src", data.imageLink).attr();
+    $(".user-image").attr("src", data.imageLink);
   });
 
   $("#connections-link").on("click", function (event) {
