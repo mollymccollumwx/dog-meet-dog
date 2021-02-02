@@ -81,6 +81,113 @@ router.get("/api/users/extra-large", (req, res) => {
 
 });
 
+//Get route for vaccinated dogs
+router.get("/api/users/vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: true,
+    },
+  }).then((vaccinated) => {
+    res.json(vaccinated);
+  })
+
+});
+
+// Get route for vaccinated dogs
+router.get("/api/users/not-vaccinated", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogVaccinated: false,
+    },
+  }).then((notVaccinated) => {
+    res.json(notVaccinated);
+  })
+
+});
+
+//Get route for all dog friendly
+router.get("/api/users/all-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "All dog friendly",
+    },
+  }).then((allDogFriendly) => {
+    res.json(allDogFriendly);
+  })
+
+});
+
+//Get route for all dog friendly
+router.get("/api/users/small-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "Small dog friendly",
+    },
+  }).then((smallDogFriendly) => {
+    res.json(smallDogFriendly);
+  })
+
+});
+
+//Get route for large dog friendly
+router.get("/api/users/large-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "Large dog friendly",
+    },
+  }).then((largeDogFriendly) => {
+    res.json(largeDogFriendly);
+  })
+
+});
+
+//Get route for puppy age
+router.get("/api/users/puppy", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Puppy",
+    },
+  }).then((puppy) => {
+    res.json(puppy);
+  })
+
+});
+
+//Get route for young age
+router.get("/api/users/young", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Young",
+    },
+  }).then((young) => {
+    res.json(young);
+  })
+
+});
+
+//Get route for adult age
+router.get("/api/users/adult", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Adult",
+    },
+  }).then((adult) => {
+    res.json(adult);
+  })
+
+});
+
+//Get route for senior age
+router.get("/api/users/senior", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogAge: "Senior",
+    },
+  }).then((senior) => {
+    res.json(senior);
+  })
+
+});
 
 
 //PUT Route to update the user in database

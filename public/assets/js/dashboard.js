@@ -1,16 +1,18 @@
 $(document).ready(function () {
   var dashboard = $("#dashboard");
+
   //get route from API/Users
   $.get("/api/users", function (data) {
     //jQuery to dynamically create cards with the user information
     createCards(data);
   });
+
   // extra small get route
   $("#extra-small").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked extra small");
-    
-    $.get("/api/users/extra-small", function(data){
+
+    $.get("/api/users/extra-small", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -21,8 +23,8 @@ $(document).ready(function () {
   $("#small").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked small");
-    
-    $.get("/api/users/small", function(data){
+
+    $.get("/api/users/small", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -33,21 +35,20 @@ $(document).ready(function () {
   $("#medium").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked medium");
-    
-    $.get("/api/users/medium", function(data){
+
+    $.get("/api/users/medium", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
     });
   });
 
-
   // large get route
   $("#large").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked large");
-    
-    $.get("/api/users/large", function(data){
+
+    $.get("/api/users/large", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -58,17 +59,122 @@ $(document).ready(function () {
   $("#extra-large").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked extra-large");
-    
-    $.get("/api/users/extra-large", function(data){
+
+    $.get("/api/users/extra-large", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
     });
   });
 
+  //vaccinated get route
+  $("#vaccinated").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked vaccinated");
 
-  // function to dynamically generate cards 
-  function createCards(data){
+    $.get("/api/users/vaccinated", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+   //vaccinated get route
+   $("#not-vaccinated").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked not vaccinated");
+
+    $.get("/api/users/not-vaccinated", function(data){
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  //all dog friendly
+  $("#all-dog").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked all dog friendly");
+
+    $.get("/api/users/all-dog", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  // small dog friendly
+  $("#small-dog").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked small dog friendly");
+
+    $.get("/api/users/small-dog", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+  // large dog friendly
+  $("#large-dog").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked large dog friendly");
+
+    $.get("/api/users/large-dog", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+
+   // age query for puppy
+   $("#puppy").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked puppy");
+
+    $.get("/api/users/puppy", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
+    // age query for young
+    $("#young").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked young");
+  
+      $.get("/api/users/young", function (data) {
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
+
+     // age query for young
+     $("#adult").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked adult");
+  
+      $.get("/api/users/adult", function (data) {
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
+
+     // age query for young
+     $("#senior").on("click", function (event) {
+      event.preventDefault();
+      console.log("You clicked senior");
+  
+      $.get("/api/users/senior", function (data) {
+        console.log(data);
+        dashboard.empty();
+        createCards(data);
+      });
+    });
+  // function to dynamically generate cards
+  function createCards(data) {
     for (let i = 0; i < data.length; i++) {
       // Variables to create cards
       // const dashboard = $("#dashboard");
@@ -152,7 +258,7 @@ $(document).ready(function () {
         userTwoId: userTwoId,
       }).then((response) => {
         console.log(response);
-      }); 
+      });
     });
   }
 });
