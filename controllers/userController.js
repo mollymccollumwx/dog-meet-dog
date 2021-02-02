@@ -105,6 +105,29 @@ router.get("/api/users/vaccinated", (req, res) => {
 
 // });
 
+//Get route for all dog friendly
+router.get("/api/users/all-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "All dog friendly",
+    },
+  }).then((allDogFriendly) => {
+    res.json(allDogFriendly);
+  })
+
+});
+
+//Get route for all dog friendly
+router.get("/api/users/small-dog", (req, res) => {
+  db.User.findAll({
+    where: {
+      friendliness: "Small dog friendly",
+    },
+  }).then((smallDogFriendly) => {
+    res.json(smallDogFriendly);
+  })
+
+});
 
 
 //PUT Route to update the user in database

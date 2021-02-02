@@ -92,6 +92,30 @@ $(document).ready(function () {
       // });
 
 
+    //all dog friendly
+      $("#all-dog").on("click", function (event) {
+        event.preventDefault();
+        console.log("You clicked all dog friendly");
+        
+        $.get("/api/users/all-dog", function(data){
+          console.log(data);
+          dashboard.empty();
+          createCards(data);
+        });
+      });
+
+      // small dog friendly
+      $("#small-dog").on("click", function (event) {
+        event.preventDefault();
+        console.log("You clicked small dog friendly");
+        
+        $.get("/api/users/small-dog", function(data){
+          console.log(data);
+          dashboard.empty();
+          createCards(data);
+        });
+      });
+
   // function to dynamically generate cards 
   function createCards(data){
     for (let i = 0; i < data.length; i++) {
