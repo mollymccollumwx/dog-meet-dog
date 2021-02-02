@@ -57,16 +57,34 @@ $(document).ready(function () {
     const imageLinkValue = $(".file-name").val(data.imageLink);
   });
   //Event Listener for Save Button
-  //   $(".save-button").on("click", function (event) {
-  //     event.preventDefault();
-  //     $.put("/api/users", (req, res) => {
-  //       db.User.update(req.body, {
-  //         where: {
-  //           id: req.body.id,
-  //         },
-  //       }).then(user=> {
-  //           res.json(user)
-  //       })
-  //     });
-  //   });
+  $(".save-button").on("click", function (event) {
+    event.preventDefault();
+    const updatedUser = {
+      email: $("#email").val().trim(),
+      password: $("#password").val().trim(),
+      ownerFirstName: $("#owner-first-name").val().trim(),
+      ownerLastName: $("#owner-last-name").val().trim(),
+      dogName: $("#dog-name").val().trim(),
+      city: $("#city").val().trim(),
+      dogBreed: $("#breed-selection").val(),
+      dogAge: $("#dog-age").val(),
+      dogSize: $("#dog-size").val(),
+      dogVaccinated: $("#vaccinated:checked").val(),
+      friendliness: $("input[name=question]:checked", "#friendliness").val(),
+    };
+
+    // console.log("You clicked the save button")
+    const currentUser = localStorage.getItem("currentUserID");
+    // $.put("api/users/" + currentUser, updatedUser).then(updatedUser=>{
+    //   console.log(updatedUser)
+    // })
+    $.ajax({
+      method: "PUT", 
+      url: "/api/users/" + currentUser,
+      data: updatedUser,
+    }).then(response=>{
+      // console.log("Promised reached")
+      console.log(response)
+    })
+  });
 });
