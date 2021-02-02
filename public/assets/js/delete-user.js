@@ -12,6 +12,7 @@ $(document).ready(function() {
             console.log(currentUser + " has been deleted");
 
             localStorage.clear();
+            window.open("/", "_self");
             
         });
     });
