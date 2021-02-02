@@ -43,7 +43,7 @@
             </div>
             <div class="column is-4">
                 <h1 class="is-size-1">Bow, wow Moose! </h1>
-                <h2>Your Ulti-mutt list of connections </h2>
+                <h2>Your ulti-mutt list of connections </h2>
             </div>
         </div>
         <div id="connections" class="columns is-multiline">
@@ -56,10 +56,6 @@
                 <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
 
                 <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met Up!</button></a> --}}
-
-
-
-
                 <div class="column is-3">
                     <div class="card">
                         <div class="card-image">
@@ -69,15 +65,19 @@
                         </div>
                         <div class="card-content">
                             <div class="columns">
-                                <div class="column is-9">
+                                <div class="column is-8">
                                     <div class="media">
-
                                         <div class="media-content">
                                             <h3 class="title is-4">{{dogName}}</h3>
-
                                         </div>
                                     </div>
-
+                                </div>
+                                <div class="column is-4">
+                                    <i class="fas fa-bone fa-lg"></i> {{treatPoints}}
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-full pr-0">
                                     <div class="content">
                                         <ul>
                                             <li>{{city}} 📍</li>
@@ -86,21 +86,16 @@
                                             <li>{{friendliness}} 😁</li>
                                             <li>{{dogVaccinated}} 💉</li>
                                         </ul>
-
                                     </div>
-                                </div>
-                                <div class="column is-3">
-                                    <i class="fas fa-bone fa-lg"></i> {{treatPoints}}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="field has-text-centered mt-1">
-                        <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
+                        <button value={{email}} data-id={{id}} class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
 
                         <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met
                             Up!</button></a>
-
                     </div>
                 </div>
                 {{/each}}
@@ -145,7 +140,10 @@
 
             </section>
             <footer class="modal-card-foot">
-                <button class="button save-button is-primary">Save changes</button>
+                
+                <a id="email-link" class="button save-button is-primary">Save Changes</a>
+                
+                {{!-- <button class="button save-button is-primary">Save changes</button> --}}
                 <button class="button cancel-button">Cancel</button>
             </footer>
         </div>
