@@ -75,16 +75,15 @@ $(document).ready(function () {
 
     // console.log("You clicked the save button")
     const currentUser = localStorage.getItem("currentUserID");
-    // $.put("api/users/" + currentUser, updatedUser).then(updatedUser=>{
-    //   console.log(updatedUser)
-    // })
+   
     $.ajax({
       method: "PUT", 
       url: "/api/users/" + currentUser,
       data: updatedUser,
     }).then(response=>{
       // console.log("Promised reached")
-      console.log(response)
+      console.log(response);
+      window.open("/dashboard", "_self");
     })
   });
 });
