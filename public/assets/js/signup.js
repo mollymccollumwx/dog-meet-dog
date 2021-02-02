@@ -12,41 +12,56 @@ $(document).ready(function () {
 
   $("#submit-form").on("click", function (event) {
     event.preventDefault();
-
-    const newUser = {
-      email: $("#email").val().trim(),
-      password: $("#password").val().trim(),
-      ownerFirstName: $("#owner-first-name").val().trim(),
-      ownerLastName: $("#owner-last-name").val().trim(),
-      dogName: $("#dog-name").val().trim(),
-      city: $("#city").val().trim(),
-      dogBreed: $("#dog-breed").val(),
-      dogAge: $("#dog-age").val(),
-      dogSize: $("#dog-size").val(),
-      dogVaccinated: $("#vaccinated:checked").val(),
-      friendliness: $("input[name=question]:checked", "#friendliness").val(),
-    };
-
-    // Add new user to database
-    $.post("/api/signup", newUser).then((newUser) => {
-      console.log(newUser);
-      var form = new FormData();
-      form.append("photo", fileInput.files[0], "file");
-
-      var settings = {
-        url: "/upload/" + newUser.id,
-        method: "POST",
-        timeout: 0,
-        processData: false,
-        mimeType: "multipart/form-data",
-        contentType: false,
-        data: form,
+    if (
+      $("#email").val() === "" ||
+      $("#password").val() === "" ||
+      $("#owner-first-name").val() === "" ||
+      $("#owner-last-name").val() === "" ||
+      $("#dog-name").val() === "" ||
+      $("#city").val() === "" ||
+      $("#dog-breed").val() === "" ||
+      $("#dog-age").val() === "" ||
+      $("#dog-size").val() === "" ||
+      $("#vaccinated:checked").val() === undefined ||
+      $("input[name=question]:checked", "#friendliness").val() === undefined
+    ) {
+      alert("You Can't Leave Anything Blank");
+    } else {
+      const newUser = {
+        email: $("#email").val().trim(),
+        password: $("#password").val().trim(),
+        ownerFirstName: $("#owner-first-name").val().trim(),
+        ownerLastName: $("#owner-last-name").val().trim(),
+        dogName: $("#dog-name").val().trim(),
+        city: $("#city").val().trim(),
+        dogBreed: $("#dog-breed").val(),
+        dogAge: $("#dog-age").val(),
+        dogSize: $("#dog-size").val(),
+        dogVaccinated: $("#vaccinated:checked").val(),
+        friendliness: $("input[name=question]:checked", "#friendliness").val(),
       };
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
+      // Add new user to database
+      $.post("/api/signup", newUser).then((newUser) => {
+        console.log(newUser);
+        var form = new FormData();
+        form.append("photo", fileInput.files[0], "file");
+
+        var settings = {
+          url: "/upload/" + newUser.id,
+          method: "POST",
+          timeout: 0,
+          processData: false,
+          mimeType: "multipart/form-data",
+          contentType: false,
+          data: form,
+        };
+
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
       });
-    });
-    window.open("/login", "_self");
+      window.open("/login", "_self");
+    }
   });
 });
