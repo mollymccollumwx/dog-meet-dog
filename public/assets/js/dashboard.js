@@ -254,7 +254,8 @@ $(document).ready(function () {
       console.log(userTwoId);
 
        $(".connect-modal").addClass("is-active");
-       $("#connect-name").text("You just made a connection!");
+       $("#connect-name").text("You're one step closer to finding a fur-ever friend!");
+       
       //post route to grab and store two user ids
       $.post("/api/connections", {
         userOneId: userOneId,
@@ -262,7 +263,6 @@ $(document).ready(function () {
       }).then((response) => {
         console.log(response);
          
-        
       });
 
       $(".cancel-button").on("click", function(event){
