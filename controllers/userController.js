@@ -33,6 +33,56 @@ router.get("/api/users/extra-small", (req, res) => {
   
 });
 
+//Get route for small dogs
+router.get("/api/users/small", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Small",
+    },
+  }).then((smallDogs) => {
+    res.json(smallDogs);
+  })
+  
+});
+
+//Get route for medium dogs
+router.get("/api/users/medium", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Medium",
+    },
+  }).then((mediumDogs) => {
+    res.json(mediumDogs);
+  })
+  
+});
+
+//Get route for large dogs
+router.get("/api/users/large", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Large",
+    },
+  }).then((largeDogs) => {
+    res.json(largeDogs);
+  })
+
+});
+
+//Get route for extra-large dogs
+router.get("/api/users/extra-large", (req, res) => {
+  db.User.findAll({
+    where: {
+      dogSize: "Extra Large",
+    },
+  }).then((extraLargeDogs) => {
+    res.json(extraLargeDogs);
+  })
+
+});
+
+
+
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
   db.User.update(req.body, {
