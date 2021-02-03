@@ -1,4 +1,5 @@
 $(document).ready(function () {
+ 
   var dashboard = $("#dashboard");
 
   //get route from API/Users
