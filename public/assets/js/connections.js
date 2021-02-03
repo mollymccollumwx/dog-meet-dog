@@ -4,20 +4,23 @@ $(document).ready(function () {
   const currentUser = localStorage.getItem("currentUserID");
   $.get("/api/users/" + currentUser).then((data) => {
     $("#welcome-message").text("Bow wow, " + data.dogName + "!");
-    $("#treat-points").text("Treat Points: " + data.treatPoints)
+    $("#treat-points").text("Treat Points: " + data.treatPoints);
     $(".user-image").attr("src", data.imageLink);
   });
 
   $("#connections-link").on("click", function (event) {
     event.preventDefault();
-    console.log("Connections Linked Clicked");
-    const currentUser = localStorage.getItem("currentUserID");
-    $.ajax({
-      method: "GET",
-      url: "/connections/" + currentUser,
-    }).then((response) => {
-      window.open("/connections/" + currentUser, "_self");
-    });
+    window.open("/connections/" + currentUser, "_self");
+
+    // console.log("Connections Linked Clicked");
+    // const currentUser = localStorage.getItem("currentUserID");
+    // $.ajax({
+    //   method: "GET",
+    //   url: "/connections/" + currentUser,
+    // }).then((response) => {
+    //   console.log(response);
+    //   // document.querySelectorAll("body").innerHTML = response;
+    // });
   });
   $(".message-button").on("click", function (event) {
     event.preventDefault();
@@ -54,8 +57,7 @@ $(document).ready(function () {
         method: "PUT",
         data: { treatPoints: treatPoints },
       };
-      $.ajax(settings).done(function (response) {
-      });
+      $.ajax(settings).done(function (response) {});
     });
 
     $(".meet-modal").addClass("is-active");
