@@ -77,3 +77,9 @@ footer {
   width: 100%;
 }
 
+/* Media query when the screen size is 1230x643 */
+@media screen and (max-width: 1230px) {
+  .card {
+    max-width: 300px;
+  }
+}

@@ -193,7 +193,6 @@ router.get("/api/users/senior", (req, res) => {
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {
-  console.log(req.body)
   db.User.update(req.body, {
     where: {
       id: req.params.id,
