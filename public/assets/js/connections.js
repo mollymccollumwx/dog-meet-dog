@@ -2,8 +2,9 @@ $(document).ready(function () {
   //GET route for connections/id
 
   const currentUser = localStorage.getItem("currentUserID");
-  $.get("/api/users/" + currentUser, (req, res) => {}).then((data) => {
+  $.get("/api/users/" + currentUser).then((data) => {
     $("#welcome-message").text("Bow wow, " + data.dogName + "!");
+    $("#treat-points").text("Treat Points: " + data.treatPoints)
     $(".user-image").attr("src", data.imageLink);
   });
 
@@ -32,6 +33,7 @@ $(document).ready(function () {
   });
   $(".delete, .cancel-button").on("click", function (event) {
     event.preventDefault();
+    location.reload();
     $(".modal").removeClass("is-active");
   });
 
@@ -44,7 +46,7 @@ $(document).ready(function () {
     event.preventDefault();
     // Add PUT route to increment treat points by 10
     const currentUser = localStorage.getItem("currentUserID");
-    $.get("/api/users/" + currentUser, (req, res) => {}).then((data) => {
+    $.get("/api/users/" + currentUser).then((data) => {
       const treatPoints = data.treatPoints + 10;
       console.log(treatPoints);
       var settings = {
@@ -53,7 +55,6 @@ $(document).ready(function () {
         data: { treatPoints: treatPoints },
       };
       $.ajax(settings).done(function (response) {
-        console.log(response);
       });
     });
 
