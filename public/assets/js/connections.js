@@ -2,7 +2,7 @@ $(document).ready(function () {
   //GET route for connections/id
 
   const currentUser = localStorage.getItem("currentUserID");
-  $.get("/api/users/" + currentUser).then((data) => {
+  $.get("/api/users/" + currentUser, (req, res) => {}).then((data) => {
     $("#welcome-message").text("Bow wow, " + data.dogName + "!");
     $(".user-image").attr("src", data.imageLink);
   });
@@ -44,8 +44,17 @@ $(document).ready(function () {
     event.preventDefault();
     // Add PUT route to increment treat points by 10
     const currentUser = localStorage.getItem("currentUserID");
-    $.get("/api/users/" + currentUser, function (data) {
-      console.log(data.treatPoints);
+    $.get("/api/users/" + currentUser, (req, res) => {}).then((data) => {
+      const treatPoints = data.treatPoints + 10;
+      console.log(treatPoints);
+      var settings = {
+        url: "/api/users/" + currentUser,
+        method: "PUT",
+        data: { treatPoints: treatPoints },
+      };
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
     });
 
     $(".meet-modal").addClass("is-active");
