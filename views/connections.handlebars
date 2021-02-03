@@ -1,61 +1,24 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item has-text-light" href="/dashboard">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-        </a>
-
-        <a role="button" class="navbar-burger"
-            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" aria-label="menu"
-            aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-            <a href="/dashboard" class="navbar-item has-text-light">
-                Dashboard
-            </a>
-
-            <a href="/connections" class="navbar-item has-text-light">
-                Connections
-            </a>
-            <a href="/treat-points" class="navbar-item has-text-light">
-                Treat Points
-            </a>
-            <a href="/edit-user" class="navbar-item has-text-light">
-                Edit Profile
-            </a>
-        </div>
-    </div>
-</nav>
+{{> navbar/main-navbar}}
 
 <section class="section">
     <div class="container">
 
 
         <div class="columns is-gapless is-centered">
-            <div class="column is-2">
-                <figure class="image is-128x128">
-                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            <div class="column is-1 mr-5">
+                <figure class="image is-1by1">
+                    <img class="user-image">
                 </figure>
             </div>
             <div class="column is-4">
-                <h1 class="is-size-1">Bow, wow Moose! </h1>
-                <h2>Your ulti-mutt list of connections </h2>
+                <h1 class="title is-size-1" id="welcome-message"></h1>
+                <h2 id="treat-points" class="subtitle is-size-4 mb-0"></h2>
+                <h2 class="subtitle is-size-6">Your ulti-mutt list of connections </h2>
             </div>
         </div>
         <div id="connections" class="columns is-multiline">
-
-
             {{#each connections}}
 
-            {{!-- buttons for card rendering --}}
-            {{!-- <div class="field has-text-centered mt-1">
-                <button class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
-
-                <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met Up!</button></a> --}}
                 <div class="column is-3">
                     <div class="card">
                         <div class="card-image">
@@ -84,7 +47,7 @@
                                             <li>{{dogAge}} 🎂</li>
                                             <li>{{dogBreed}} 🐶</li>
                                             <li>{{friendliness}} 😁</li>
-                                            <li>{{dogVaccinated}} 💉</li>
+                                            <li>{{#if dogVaccinated}} <p>Vaccinated 💉</p>{{else}} <p>Not Vaccinated💉</p> {{/if}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -103,63 +66,17 @@
         </div>
     </div>
 
-    {{!-- message modal --}}
-    <div class="modal message-modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Connect with Moose!</p>
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <!-- Content ... -->
-                <h1>You're on your way to one more fur-friend!</h1>
-                <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Text input">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Email</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Email input" value="hello@test.com">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Message</label>
-                    <div class="control">
-                        <textarea class="textarea" placeholder="Textarea"></textarea>
-                    </div>
-                </div>
-
-            </section>
-            <footer class="modal-card-foot">
-                
-                <a id="email-link" class="button save-button is-primary">Save Changes</a>
-                
-                {{!-- <button class="button save-button is-primary">Save changes</button> --}}
-                <button class="button cancel-button">Cancel</button>
-            </footer>
-        </div>
-    </div>
-
     {{!-- meet modal --}}
     <div class="modal meet-modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">Woof, woof!</p>
+                <p class="modal-card-title">Paw yeah! You met up with a fur-friend!</p>
                 <button class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
                 <!-- Content ... -->
-                <p>You now have 110 treat points!</p>
+                <p>You've been awarded 10 treat points!</p>
             </section>
             <footer class="modal-card-foot">
                 <a href="/treat-points" class="button is-primary">Treat Leader board</a>
@@ -175,5 +92,4 @@
 
 
 </section>
-{{> footer/footer}}
 <script src="/assets/js/connections.js"></script>

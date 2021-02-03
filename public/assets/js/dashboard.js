@@ -79,12 +79,12 @@ $(document).ready(function () {
     });
   });
 
-   //vaccinated get route
-   $("#not-vaccinated").on("click", function (event) {
+  //vaccinated get route
+  $("#not-vaccinated").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked not vaccinated");
 
-    $.get("/api/users/not-vaccinated", function(data){
+    $.get("/api/users/not-vaccinated", function (data) {
       console.log(data);
       dashboard.empty();
       createCards(data);
@@ -127,8 +127,8 @@ $(document).ready(function () {
     });
   });
 
-   // age query for puppy
-   $("#puppy").on("click", function (event) {
+  // age query for puppy
+  $("#puppy").on("click", function (event) {
     event.preventDefault();
     console.log("You clicked puppy");
 
@@ -138,53 +138,56 @@ $(document).ready(function () {
       createCards(data);
     });
   });
-    // age query for young
-    $("#young").on("click", function (event) {
-      event.preventDefault();
-      console.log("You clicked young");
-  
-      $.get("/api/users/young", function (data) {
-        console.log(data);
-        dashboard.empty();
-        createCards(data);
-      });
-    });
+  // age query for young
+  $("#young").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked young");
 
-     // age query for young
-     $("#adult").on("click", function (event) {
-      event.preventDefault();
-      console.log("You clicked adult");
-  
-      $.get("/api/users/adult", function (data) {
-        console.log(data);
-        dashboard.empty();
-        createCards(data);
-      });
+    $.get("/api/users/young", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
     });
+  });
 
-     // age query for young
-     $("#senior").on("click", function (event) {
-      event.preventDefault();
-      console.log("You clicked senior");
-  
-      $.get("/api/users/senior", function (data) {
-        console.log(data);
-        dashboard.empty();
-        createCards(data);
-      });
+  // age query for young
+  $("#adult").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked adult");
+
+    $.get("/api/users/adult", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
     });
+  });
+
+  // age query for young
+  $("#senior").on("click", function (event) {
+    event.preventDefault();
+    console.log("You clicked senior");
+
+    $.get("/api/users/senior", function (data) {
+      console.log(data);
+      dashboard.empty();
+      createCards(data);
+    });
+  });
   // function to dynamically generate cards
   function createCards(data) {
     for (let i = 0; i < data.length; i++) {
       // Variables to create cards
       // const dashboard = $("#dashboard");
-      const mainColumn = $("<div>").addClass("column is-3");
+      const mainColumn = $("<div>").addClass(
+        "column is-3 is-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd"
+      );
       const newCard = $("<div>").addClass("card");
       const cardImageDiv = $("<div>").addClass("card-image");
       const figure = $("<figure>").addClass("image");
       const cardImage = $("<img>")
         .attr("src", data[i].imageLink)
-        .attr("style", "width: 100%");
+        .attr("style", "width: 100%")
+        .addClass("dog-image");
       const cardContent = $("<div>").addClass("card-content");
       const columns = $("<div>").addClass("columns");
       const columnOne = $("<div>").addClass("column is-full pr-0");
@@ -252,12 +255,28 @@ $(document).ready(function () {
       const userTwoId = $(this).data("id");
       console.log(userOneId);
       console.log(userTwoId);
+
+      $(".connect-modal").addClass("is-active");
+      $("#connect-name").text(
+        "You're one step closer to finding a fur-ever friend!"
+      );
+
       //post route to grab and store two user ids
       $.post("/api/connections", {
         userOneId: userOneId,
         userTwoId: userTwoId,
       }).then((response) => {
         console.log(response);
+      });
+
+      $(".cancel-button").on("click", function (event) {
+        event.preventDefault();
+        location.reload();
+      });
+
+      $(".connections-button").on("click", function (event) {
+        event.preventDefault();
+        window.open("/connections/" + userOneId, "_self");
       });
     });
   }

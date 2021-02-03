@@ -1,19 +1,5 @@
 $(document).ready(function () {
-  const breedSelection = $("#breed-selection");
-  const APIkey = "b28e0896-2cdc-40c9-bc2a-b043817011ed";
-  $.ajax({
-    url:
-      "https://cors-anywhere.herokuapp.com/https://api.thedogapi.com/v1/breeds",
-    headers: { Authorization: APIkey },
-    method: "GET",
-  }).then((response) => {
-    for (let i = 0; i < response.length; i++) {
-      const newOption = $("<option>");
-      newOption.text(response[i].name);
-      breedSelection.append(newOption);
-    }
-  });
-
+  localStorage.clear();
   const fileInput = document.querySelector("#dog-file input[type=file]");
   fileInput.onchange = () => {
     if (fileInput.files.length > 0) {
@@ -26,23 +12,37 @@ $(document).ready(function () {
 
   $("#submit-form").on("click", function (event) {
     event.preventDefault();
+    if (
+      $("#email").val() === "" ||
+      $("#password").val() === "" ||
+      $("#owner-first-name").val() === "" ||
+      $("#owner-last-name").val() === "" ||
+      $("#dog-name").val() === "" ||
+      $("#city").val() === "" ||
+      $("#dog-breed").val() === "" ||
+      $("#dog-age").val() === "" ||
+      $("#dog-size").val() === "" ||
+      $("#vaccinated:checked").val() === undefined ||
+      $("input[name=question]:checked", "#friendliness").val() === undefined
+    ) {
+      alert("You Can't Leave Anything Blank");
+    } else {
+      const newUser = {
+        email: $("#email").val().trim(),
+        password: $("#password").val().trim(),
+        ownerFirstName: $("#owner-first-name").val().trim(),
+        ownerLastName: $("#owner-last-name").val().trim(),
+        dogName: $("#dog-name").val().trim(),
+        city: $("#city").val().trim(),
+        dogBreed: $("#dog-breed").val(),
+        dogAge: $("#dog-age").val(),
+        dogSize: $("#dog-size").val(),
+        dogVaccinated: $("#vaccinated:checked").val(),
+        friendliness: $("input[name=question]:checked", "#friendliness").val(),
+      };
 
-    const newUser = {
-      email: $("#email").val().trim(),
-      password: $("#password").val().trim(),
-      ownerFirstName: $("#owner-first-name").val().trim(),
-      ownerLastName: $("#owner-last-name").val().trim(),
-      dogName: $("#dog-name").val().trim(),
-      city: $("#city").val().trim(),
-      dogBreed: $("#breed-selection").val(),
-      dogAge: $("#dog-age").val(),
-      dogSize: $("#dog-size").val(),
-      dogVaccinated: $("#vaccinated:checked").val(),
-      friendliness: $("input[name=question]:checked", "#friendliness").val(),
-    };
-
-    // Add new user to database
-    $.post("/api/signup", newUser).then((newUser) => {
+      // Add new user to database
+      $.post("/api/signup", newUser).then((newUser) => {
         console.log(newUser);
         var form = new FormData();
         form.append("photo", fileInput.files[0], "file");
@@ -60,7 +60,8 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
           console.log(response);
         });
-        window.open("/login", "_self");
-    });
+      });
+      window.open("/login", "_self");
+    }
   });
 });

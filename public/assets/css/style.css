@@ -1,7 +1,13 @@
 /* Navbar styling */
-
+body {
+  background-color: whitesmoke;
+}
 .navbar {
   background-color: #68D1E7;
+}
+
+.navbar-link:hover, a.navbar-item:hover {
+  color: rgb(85, 85, 85) !important;
 }
 
 .navbar-menu {
@@ -45,13 +51,35 @@ ul {
   background-color: #FA6900 !important;
 }
 
+.fa-paw {
+  color: #FA6900 !important;
+}
+
 #connections-image {
   width: 100%; 
 }
+
+
+.user-image{
+  border:3px solid;
+  border-color: #FA6900;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  object-fit: cover;
+  display:flex;
+  } 
 
 footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+/* Media query when the screen size is 1230x643 */
+@media screen and (max-width: 1230px) {
+  .card {
+    max-width: 300px;
+  }
 }

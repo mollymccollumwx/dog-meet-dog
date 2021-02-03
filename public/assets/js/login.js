@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  localStorage.clear();
   $(".submit-button").on("click", function (event) {
     event.preventDefault();
     const userLoggedIn = {
