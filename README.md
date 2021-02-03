@@ -6,6 +6,7 @@
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 ![GitHub license](https://img.shields.io/badge/mySQL-blue)
 
+[View the deployed application here](https://github.com/mollymccollumwx/project2)
 # Table of Contents
 
 * [About the Project](#about-the-project)
@@ -86,7 +87,6 @@ The following sites were used to make Dog Meet Dog a functioning application:
 
 * [Canva](https://www.canva.com/)
 
-* Project Link 
 
 ### License  
 
