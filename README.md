@@ -9,9 +9,9 @@
 # Table of Contents
 
 * [About the Project](#about-the-project)
-  * [Built With](#built-with)
+* [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Installation](#installation)
+* [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [License](#license)
@@ -19,23 +19,29 @@
 
 ## About the Project 
 
-🐾 The Dog Meet Dog application was designed for the dog lovers who love connects with other owners and their pets. Owners are given the ability to create a profile for their dogs that includes their dog name, breed, size, friendliness, and if they were vaccinated or not.  
+🐾 The Dog Meet Dog application was designed for the dog lovers who love to connect with other owners and their pets. Owners are given the ability to create a profile for their dogs that includes their dog name, breed, size, friendliness, and if they were vaccinated or not. 
 
 * Preview of the project/screenshot 
-
-
 
 ![Dog Meet Dog](.)
 
 ## Built with 
 
-These were the major frameworks used to build this application  
+These were the major frameworks used to build this application:  
 
 * Bulma 
 * JQuery 
 * Handlebars 
 * Javascript 
 * CSS   
+* Cloudinary
+* Sequelize 
+* Heroku 
+* Express 
+* JAWSdb 
+* MySql 
+* Handlebars 
+* Figma 
 
 ### Getting Started 
 
@@ -54,7 +60,9 @@ const API_KEY = 'ENTER YOUR API';
 
 EX. How this project should be used, code samples 
 
-### Contributing 
+### Contributing
+
+The following individuals contributed to the success of this application. You can view their Github profiles by clicking on their names:
 
 * [Molly McCollum]()
 
@@ -63,6 +71,16 @@ EX. How this project should be used, code samples
 * [Mario Reid](github)  
 
 * [Selena Singleton](github) 
+
+* [Peter Colella](https://github.com/petercolella)
+
+The following sites were used to make Dog Meet Dog a functioning application: 
+
+* [Cloudinary API](https://cloudinary.com/documentation/image_upload_api_reference)    
+
+* [Stackoverflow](https://stackoverflow.com/)        
+
+* [Canva](https://www.canva.com/)
 
 * Project Link 
 
