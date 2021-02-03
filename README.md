@@ -24,7 +24,11 @@
 
 * Preview of the project/screenshot 
 
-![Dog Meet Dog](.)
+![Dog Meet Dog](./homePage.png)
+
+
+
+
 
 ## Built with 
 
