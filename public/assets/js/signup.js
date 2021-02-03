@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  localStorage.clear();
+  // localStorage.clear();
   const fileInput = document.querySelector("#dog-file input[type=file]");
   fileInput.onchange = () => {
     if (fileInput.files.length > 0) {
@@ -61,7 +61,7 @@ $(document).ready(function () {
           console.log(response);
         });
       });
-      window.open("/login", "_self");
+      
     }
   });
 });
