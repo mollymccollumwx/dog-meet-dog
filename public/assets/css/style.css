@@ -1,5 +1,5 @@
 /* Navbar styling */
-body {
+body, html {
   background-color: whitesmoke;
 }
 .navbar {
@@ -59,6 +59,10 @@ ul {
   width: 100%; 
 }
 
+.button.is-light {
+  background-color: white;
+  border: 1px solid lightgray;
+}
 
 .user-image{
   border:3px solid;
