@@ -1,5 +1,7 @@
 /* Navbar styling */
-
+body {
+  background-color: whitesmoke;
+}
 .navbar {
   background-color: #68D1E7;
 }
