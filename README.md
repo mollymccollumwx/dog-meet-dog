@@ -20,15 +20,13 @@
 
 ## About the Project 
 
-🐾 The Dog Meet Dog application was designed for the dog lovers who love to connect with other owners and their pets. Owners are given the ability to create a profile for their dogs that includes their dog name, breed, size, friendliness, and if they were vaccinated or not. 
+🐾 Tired of going to the same old dog parks? Tired of walking the same old trails? This application is a fun way for you and your best friend to meet new fur friends!The Dog Meet Dog application was designed for the dog lovers who love to connect with other owners and their pets. Owners are given the ability to create a profile for their dogs that includes their dog name, breed, size, friendliness, and if they were vaccinated or not. 
 
 * Preview of the project/screenshot 
 
-![Dog Meet Dog](./homePage.png)
-
-
-
-
+![Dog Meet Dog](./public/assets/images/homePage.png)
+![Dashboard](./public/assets/images/doggieDashboard.png)
+![Dashboard](./public/assets/images/connectionMadeAlert.png)
 
 ## Built with 
 
@@ -49,8 +47,8 @@ These were the major frameworks used to build this application:
 * Figma 
 
 ### Getting Started 
+View deployed website
 
-How to set up the project locally 
 
 ### Installation 
 
@@ -67,19 +65,19 @@ How to set up the project locally
 
 ### Usage 
 
-EX. How this project should be used, code samples 
+As a user, I want an application that allows me to connect with other dog owners so that I can meet up with them and my dog gets exercise. I open Dog Meet Dog. I see and click on other dog profile. I am able to connect with them via email and make plans to meet up in person.
 
 ### Contributing
 
 The following individuals contributed to the success of this application. You can view their Github profiles by clicking on their names:
 
-* [Molly McCollum]()
+* [Molly McCollum](https://github.com/mollymccollumwx)
 
-* [Jeana Rose Mathis](github)
+* [Jeana Rose Mathis](https://github.com/jeanarose)
 
-* [Mario Reid](github)  
+* [Mario Reid](https://github.com/MarioReid)  
 
-* [Selena Singleton](github) 
+* [Selena Singleton](https://github.com/ssingle7) 
 
 * [Peter Colella](https://github.com/petercolella)
 
@@ -111,16 +109,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-
-
-
-
-
-
-
-
-
