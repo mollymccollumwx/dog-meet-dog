@@ -49,12 +49,16 @@ How to set up the project locally
 
 ### Installation 
 
-EX. Clone the repo
-git clone https://github.com/your_username_/Project-Name.git
-Install NPM packages
-npm install
-Enter your API in config.js
-const API_KEY = 'ENTER YOUR API';
+1.  `Clone the repo`
+    `git clone https://github.com/your_username_/Project-Name.git`
+
+2.  `Install NPM packages`
+
+3.  `npm install`
+
+4. `npm start`
+
+5. `run application in your local host`
 
 ### Usage 
 
