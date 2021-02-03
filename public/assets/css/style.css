@@ -1,5 +1,5 @@
 /* Navbar styling */
-body {
+body, html {
   background-color: whitesmoke;
 }
 .navbar {

@@ -1,4 +1,43 @@
-{{> navbar/main-navbar}}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item has-text-light" href="/dashboard">
+            <p class="is-size-4 has-text-light"><i class="fas fa-paw fa-lg pr-3"></i>Dog Meet Dog</p>
+        </a>
+        <a role="button" class="navbar-burger"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" aria-label="menu"
+            aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a href="/dashboard" class="navbar-item has-text-light">
+                Dashboard
+            </a>
+
+            <a id="connections-link" class="navbar-item has-text-light">
+                Connections
+            </a>
+            <a href="/treat-points" class="navbar-item has-text-light">
+                Treat Points
+            </a>
+            <a href="/edit-user" class="navbar-item has-text-light">
+                Edit Profile
+            </a>
+        </div>
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a href="/" class="button logout-button is-primary">
+                    <strong>Logout</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
 <section class="section">
     <div class="container">
@@ -19,51 +58,53 @@
         <div id="connections" class="columns is-multiline">
             {{#each connections}}
 
-                <div class="column is-3">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img id="connections-image" src={{imageLink}} alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="columns">
-                                <div class="column is-8">
-                                    <div class="media">
-                                        <div class="media-content">
-                                            <h3 class="title is-4">{{dogName}}</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column is-4">
-                                    <i class="fas fa-bone fa-lg"></i> {{treatPoints}}
-                                </div>
-                            </div>
-                            <div class="columns">
-                                <div class="column is-full pr-0">
-                                    <div class="content">
-                                        <ul>
-                                            <li>{{city}} 📍</li>
-                                            <li>{{dogAge}} 🎂</li>
-                                            <li>{{dogBreed}} 🐶</li>
-                                            <li>{{friendliness}} 😁</li>
-                                            <li>{{#if dogVaccinated}} <p>Vaccinated 💉</p>{{else}} <p>Not Vaccinated💉</p> {{/if}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img id="connections-image" src={{imageLink}} alt="Placeholder image">
+                        </figure>
                     </div>
-                    <div class="field has-text-centered mt-1">
-                        <button value={{email}} data-id={{id}} class="button message-button is-primary"><i class="far fa-envelope"></i>Message</button>
-
-                        <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met
-                            Up!</button></a>
+                    <div class="card-content">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <h3 class="title is-4">{{dogName}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <i class="fas fa-bone fa-lg"></i> {{treatPoints}}
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column is-full pr-0">
+                                <div class="content">
+                                    <ul>
+                                        <li>{{city}} 📍</li>
+                                        <li>{{dogAge}} 🎂</li>
+                                        <li>{{dogBreed}} 🐶</li>
+                                        <li>{{friendliness}} 😁</li>
+                                        <li>{{#if dogVaccinated}} <p>Vaccinated 💉</p>{{else}} <p>Not Vaccinated💉</p>
+                                            {{/if}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {{/each}}
+                <div class="field has-text-centered mt-1">
+                    <button value={{email}} data-id={{id}} class="button message-button is-primary"><i
+                            class="far fa-envelope"></i>Message</button>
+
+                    <button class="button meet-button is-light"><i class="fas fa-paw"></i>We Met
+                        Up!</button></a>
+                </div>
             </div>
+            {{/each}}
         </div>
+    </div>
     </div>
 
     {{!-- meet modal --}}
