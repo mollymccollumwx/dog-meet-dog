@@ -11,22 +11,10 @@ $(document).ready(function () {
   $("#connections-link").on("click", function (event) {
     event.preventDefault();
     window.open("/connections/" + currentUser, "_self");
-
-    // console.log("Connections Linked Clicked");
-    // const currentUser = localStorage.getItem("currentUserID");
-    // $.ajax({
-    //   method: "GET",
-    //   url: "/connections/" + currentUser,
-    // }).then((response) => {
-    //   console.log(response);
-    //   // document.querySelectorAll("body").innerHTML = response;
-    // });
   });
   $(".message-button").on("click", function (event) {
     event.preventDefault();
-    console.log(this);
     const userEmail = $(this).attr("value");
-    console.log($(this).attr("value"));
 
     var email = userEmail;
     var subject = "Let's have a dog party!";
@@ -51,7 +39,6 @@ $(document).ready(function () {
     const currentUser = localStorage.getItem("currentUserID");
     $.get("/api/users/" + currentUser).then((data) => {
       const treatPoints = data.treatPoints + 10;
-      console.log(treatPoints);
       var settings = {
         url: "/api/users/" + currentUser,
         method: "PUT",

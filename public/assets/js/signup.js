@@ -43,7 +43,6 @@ $(document).ready(function () {
 
       // Add new user to database
       $.post("/api/signup", newUser).then((newUser) => {
-        console.log(newUser);
         var form = new FormData();
         form.append("photo", fileInput.files[0], "file");
 

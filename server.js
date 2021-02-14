@@ -1,6 +1,4 @@
 require('dotenv').config();
-console.log(process.env.API_KEY);
-console.log(process.env);
 const express = require("express");
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
@@ -47,13 +45,10 @@ cloudinary.config({
 app.post("/upload/:id", function (req, res, next) {
   const file = req.files.photo;
   cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
-    console.log("Error: ", err);
-    console.log("Cloudinary URL: ", result.url);
     db.User.update(
       { imageLink: result.url },
       { where: { id: req.params.id } }
     ).then((updatedUser) => {
-      console.log(updatedUser);
       res.json({ success: true });
     });
   });

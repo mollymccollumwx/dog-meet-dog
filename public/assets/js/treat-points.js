@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $.get("/api/users", function(data){
-        console.log(data[0].dogName);
         for(let i=0; i < data.length; i++){
             
         
