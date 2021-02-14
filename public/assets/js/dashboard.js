@@ -11,10 +11,8 @@ $(document).ready(function () {
   // extra small get route
   $("#extra-small").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked extra small");
 
     $.get("/api/users/extra-small", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -23,10 +21,8 @@ $(document).ready(function () {
   // small get route
   $("#small").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked small");
 
     $.get("/api/users/small", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -35,10 +31,8 @@ $(document).ready(function () {
   // medium get route
   $("#medium").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked medium");
 
     $.get("/api/users/medium", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -47,10 +41,8 @@ $(document).ready(function () {
   // large get route
   $("#large").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked large");
 
     $.get("/api/users/large", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -59,10 +51,8 @@ $(document).ready(function () {
   // extra-large get route
   $("#extra-large").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked extra-large");
 
     $.get("/api/users/extra-large", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -71,10 +61,8 @@ $(document).ready(function () {
   //vaccinated get route
   $("#vaccinated").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked vaccinated");
 
     $.get("/api/users/vaccinated", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -83,10 +71,8 @@ $(document).ready(function () {
   //vaccinated get route
   $("#not-vaccinated").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked not vaccinated");
 
     $.get("/api/users/not-vaccinated", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -95,10 +81,8 @@ $(document).ready(function () {
   //all dog friendly
   $("#all-dog").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked all dog friendly");
 
     $.get("/api/users/all-dog", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -107,10 +91,8 @@ $(document).ready(function () {
   // small dog friendly
   $("#small-dog").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked small dog friendly");
 
     $.get("/api/users/small-dog", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -119,10 +101,8 @@ $(document).ready(function () {
   // large dog friendly
   $("#large-dog").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked large dog friendly");
 
     $.get("/api/users/large-dog", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -131,10 +111,8 @@ $(document).ready(function () {
   // age query for puppy
   $("#puppy").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked puppy");
 
     $.get("/api/users/puppy", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -142,10 +120,8 @@ $(document).ready(function () {
   // age query for young
   $("#young").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked young");
 
     $.get("/api/users/young", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -154,10 +130,8 @@ $(document).ready(function () {
   // age query for young
   $("#adult").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked adult");
 
     $.get("/api/users/adult", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -166,10 +140,8 @@ $(document).ready(function () {
   // age query for young
   $("#senior").on("click", function (event) {
     event.preventDefault();
-    console.log("You clicked senior");
 
     $.get("/api/users/senior", function (data) {
-      console.log(data);
       dashboard.empty();
       createCards(data);
     });
@@ -250,12 +222,9 @@ $(document).ready(function () {
     }
 
     $(".connect-btn").on("click", function (event) {
-      console.log(this);
       event.preventDefault();
       const userOneId = localStorage.getItem("currentUserID");
       const userTwoId = $(this).data("id");
-      console.log(userOneId);
-      console.log(userTwoId);
 
       $(".connect-modal").addClass("is-active");
       $("#connect-name").text(
@@ -267,7 +236,6 @@ $(document).ready(function () {
         userOneId: userOneId,
         userTwoId: userTwoId,
       }).then((response) => {
-        console.log(response);
       });
 
       $(".cancel-button").on("click", function (event) {

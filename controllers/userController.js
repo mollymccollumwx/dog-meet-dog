@@ -226,7 +226,6 @@ router.delete("/api/users/:id", (req, res) => {
 
 // POST route for user login
 router.post("/api/users/login", (req, res) => {
-  console.log(req.body);
   db.User.findOne({
     where: {
       email: req.body.email,

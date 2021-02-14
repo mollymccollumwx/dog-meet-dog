@@ -51,11 +51,9 @@ module.exports = function (app) {
             const key = userTwo.id + "" + userOne.id;
             usersMap[key] = userOne.dataValues;
           }
-          console.log(i, usersMap);
         }
        //making object of objects into array of objects 
         const arrayOfObjects = Object.values(usersMap);
-        console.log(arrayOfObjects);
 
         res.render("connections", { connections: arrayOfObjects });
       })

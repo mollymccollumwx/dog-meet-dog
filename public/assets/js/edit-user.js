@@ -2,7 +2,6 @@ $(document).ready(function () {
   //Select all inputs from form on edit-user.handlebars
   const currentUser = localStorage.getItem("currentUserID");
   $.get("/api/users/" + currentUser, function (data) {
-    console.log(data);
     const emailValue = $("#email").val(data.email);
     const passwordValue = $("#password").val(data.password);
     const ownerFirstNameValue = $("#owner-first-name").val(data.ownerFirstName);
@@ -49,7 +48,6 @@ $(document).ready(function () {
       url: "/api/users/" + currentUser,
       data: updatedUser,
     }).then(response=>{
-      console.log(response);
       window.open("/dashboard", "_self");
     })
   });
