@@ -1,12 +1,12 @@
 const express = require("express");
 const db = require("../models");
-
+const { Op } = require("sequelize");
 const router = express.Router();
 
 //API ROUTES
 //GET Route to get all users
 router.get("/api/users", (req, res) => {
-  db.User.findAll().then((allUsers) => {
+  db.User.findAll({ order: [["treatPoints", "DESC"]] }).then((allUsers) => {
     res.json(allUsers);
   });
 });
@@ -30,8 +30,7 @@ router.get("/api/users/extra-small", (req, res) => {
     },
   }).then((extraSmallDogs) => {
     res.json(extraSmallDogs);
-  })
-  
+  });
 });
 
 //Get route for small dogs
@@ -42,8 +41,7 @@ router.get("/api/users/small", (req, res) => {
     },
   }).then((smallDogs) => {
     res.json(smallDogs);
-  })
-  
+  });
 });
 
 //Get route for medium dogs
@@ -54,8 +52,7 @@ router.get("/api/users/medium", (req, res) => {
     },
   }).then((mediumDogs) => {
     res.json(mediumDogs);
-  })
-  
+  });
 });
 
 //Get route for large dogs
@@ -66,8 +63,7 @@ router.get("/api/users/large", (req, res) => {
     },
   }).then((largeDogs) => {
     res.json(largeDogs);
-  })
-
+  });
 });
 
 //Get route for extra-large dogs
@@ -78,8 +74,7 @@ router.get("/api/users/extra-large", (req, res) => {
     },
   }).then((extraLargeDogs) => {
     res.json(extraLargeDogs);
-  })
-
+  });
 });
 
 //Get route for vaccinated dogs
@@ -90,8 +85,7 @@ router.get("/api/users/vaccinated", (req, res) => {
     },
   }).then((vaccinated) => {
     res.json(vaccinated);
-  })
-
+  });
 });
 
 // Get route for vaccinated dogs
@@ -102,8 +96,7 @@ router.get("/api/users/not-vaccinated", (req, res) => {
     },
   }).then((notVaccinated) => {
     res.json(notVaccinated);
-  })
-
+  });
 });
 
 //Get route for all dog friendly
@@ -114,8 +107,7 @@ router.get("/api/users/all-dog", (req, res) => {
     },
   }).then((allDogFriendly) => {
     res.json(allDogFriendly);
-  })
-
+  });
 });
 
 //Get route for all dog friendly
@@ -126,8 +118,7 @@ router.get("/api/users/small-dog", (req, res) => {
     },
   }).then((smallDogFriendly) => {
     res.json(smallDogFriendly);
-  })
-
+  });
 });
 
 //Get route for large dog friendly
@@ -138,8 +129,7 @@ router.get("/api/users/large-dog", (req, res) => {
     },
   }).then((largeDogFriendly) => {
     res.json(largeDogFriendly);
-  })
-
+  });
 });
 
 //Get route for puppy age
@@ -150,8 +140,7 @@ router.get("/api/users/puppy", (req, res) => {
     },
   }).then((puppy) => {
     res.json(puppy);
-  })
-
+  });
 });
 
 //Get route for young age
@@ -162,8 +151,7 @@ router.get("/api/users/young", (req, res) => {
     },
   }).then((young) => {
     res.json(young);
-  })
-
+  });
 });
 
 //Get route for adult age
@@ -174,8 +162,7 @@ router.get("/api/users/adult", (req, res) => {
     },
   }).then((adult) => {
     res.json(adult);
-  })
-
+  });
 });
 
 //Get route for senior age
@@ -186,10 +173,8 @@ router.get("/api/users/senior", (req, res) => {
     },
   }).then((senior) => {
     res.json(senior);
-  })
-
+  });
 });
-
 
 //PUT Route to update the user in database
 router.put("/api/users/:id", (req, res) => {

@@ -1,11 +1,14 @@
 $(document).ready(function () {
- 
   var dashboard = $("#dashboard");
 
   //get route from API/Users
   $.get("/api/users", function (data) {
     //jQuery to dynamically create cards with the user information
-    createCards(data);
+    const filteredData = data.filter((dog) => {
+      const currentUser = parseInt(localStorage.getItem("currentUserID"));
+      return dog.id !== currentUser;
+    });
+    createCards(filteredData);
   });
 
   // extra small get route
@@ -235,8 +238,7 @@ $(document).ready(function () {
       $.post("/api/connections", {
         userOneId: userOneId,
         userTwoId: userTwoId,
-      }).then((response) => {
-      });
+      }).then((response) => {});
 
       $(".cancel-button").on("click", function (event) {
         event.preventDefault();

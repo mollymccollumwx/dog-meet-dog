@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
@@ -9,7 +9,6 @@ const app = express();
 const db = require("./models");
 const UsersController = require("./controllers/userController");
 const ConnectionsController = require("./controllers/connectionController");
-
 
 const PORT = process.env.PORT || 8080;
 
@@ -40,11 +39,11 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-
 ////////CLOUDINARY ROUTE///////////////////////////////////
 app.post("/upload/:id", function (req, res, next) {
   const file = req.files.photo;
   cloudinary.uploader.upload(file.tempFilePath, function (err, result) {
+    console.log("Cloudinary URL: " + result.url);
     db.User.update(
       { imageLink: result.url },
       { where: { id: req.params.id } }
@@ -64,7 +63,6 @@ db.sequelize
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
-      
     });
   })
   .catch((err) => {

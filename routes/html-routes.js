@@ -26,17 +26,15 @@ module.exports = function (app) {
       ],
     })
       .then((connections) => {
-       
-        //created new object 
+        //created new object
         const usersMap = {};
 
         //looping over connections data
         for (let i = 0; i < connections.length; i++) {
-
           //declaring new variable for each object in the connections array
           const userOne = connections[i].userOne;
           const userTwo = connections[i].userTwo;
-          
+
           //making a conditional matches id in connections and id from the URL
           if (userOne.id === parseInt(req.params.id)) {
             // creating a new key that userOne from our connections data and concats with userTWo from connections data
@@ -52,7 +50,7 @@ module.exports = function (app) {
             usersMap[key] = userOne.dataValues;
           }
         }
-       //making object of objects into array of objects 
+        //making object of objects into array of objects
         const arrayOfObjects = Object.values(usersMap);
 
         res.render("connections", { connections: arrayOfObjects });
