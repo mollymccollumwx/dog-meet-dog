@@ -58,6 +58,9 @@ $(document).ready(function () {
 
         $.ajax(settings).done(function (response) {
           console.log(response);
+          localStorage.setItem("currentUserID", newUser.id);
+          const currentUser = localStorage.getItem("currentUserID");
+          location.href = "/dashboard";
         });
       });
       
